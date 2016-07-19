@@ -72,7 +72,7 @@ const findOrCreateSession = (fbid) => {
 };
 
 const actions = {
-  send_wit(sessionId, text) {
+  send_wit({sessionId}, {text}) {
     const recipientId = sessions[sessionId].fbid;
     if (recipientId) {
       return fbMessage(recipientId, text)
@@ -99,7 +99,7 @@ const wit = new Wit({
 });
 
 const app = express();
-app.use((method, url, rsp, next) => {
+app.use(({method, url}, rsp, next) => {
   rsp.on('finish', () => {
     console.log(`${rsp.statusCode} ${method} ${url}`);
   });
