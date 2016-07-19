@@ -72,7 +72,7 @@ const findOrCreateSession = (fbid) => {
 };
 
 const actions = {
-  send({sessionId}, {text}) {
+  send_wit({sessionId}, {text}) {
     const recipientId = sessions[sessionId].fbid;
     if (recipientId) {
       return fbMessage(recipientId, text)
