@@ -93,17 +93,16 @@ const actions = {
   },
     send_wit({sessionId}) {
       https.get('https://graph.facebook.com/v2.6/'+sessions[sessionId].fbid+'?access_token=EAAENS5edtgwBALelfsMwtZAgqodfCCB0EsYjcEP2onKuSDVOOmyPvFqiyr97ilTtRxPT5Mt9JmJZC0RqJvrUGzkLHWujLLLZBDcZAkPhiixfm1RF7QV03PYP931hTrz2qj8DjBOaZCz5PUZAKsZA4rcBkUBRmzKZB5BhtSIG12BePAZDZD', function(res) {
-    res.on("data", function(chunk) {
+      res.on("data", function(chunk) {
       var info = JSON.parse(chunk);
-    if (sessions[sessionId].fbid) {
-      sessions[sessionId].context.fbuname = info.first_name;
-      return Promise.resolve()
-    }
+      if (sessions[sessionId].fbid) {
+        sessions[sessionId].context.fbuname = info.first_name;
+        return Promise.resolve()
+     }
   });
 }).on('error', function(e) {
   console.log("Got error: " + e.message);
-});
-    
+});    
   },
 };
 
