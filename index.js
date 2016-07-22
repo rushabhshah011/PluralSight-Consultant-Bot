@@ -36,7 +36,6 @@ crypto.randomBytes(8, (err, buff) => {
 });
 
 const fbMessage = (id, text) => {
-	console.log("id",id);
   const body = JSON.stringify({
     recipient: { id },
     message: { text },
@@ -122,6 +121,7 @@ app.get('/webhook', (req, res) => {
 });
 
 app.post('/webhook', (req, res) => {
+	console.log(JSON.stringify(res));
   const data = req.body;
 console.log('received data', JSON.stringify(data));
   if (data.object === 'page') {
