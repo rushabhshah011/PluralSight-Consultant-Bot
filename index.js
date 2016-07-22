@@ -91,6 +91,15 @@ const actions = {
     }
   },
     send_wit({sessionId}) {
+      http.get('https://graph.facebook.com/v2.6/933900786739383?fields=first_name,picture&access_token=EAAENS5edtgwBABzta6Kg0q01gl0Cb7fN8nD62MY2Aa2Bv5p7S7PnuatcYA2BTq501Wo82TzRKqvbFPqcfF4orCZCRV1XkzLWGD212UUmwPGg2XEcqIWmpZCRpXbB8Sn3QarC9NCAbs4AxEmYRrd3aZCAUbZBR0pJpgd1JZAqffQZDZD', function(res) {
+  console.log("Got response: " + res.statusCode);
+
+  res.on("data", function(chunk) {
+    console.log("BODY: " + chunk);
+  });
+}).on('error', function(e) {
+  console.log("Got error: " + e.message);
+});
     const recipientId = sessions[sessionId].fbid;
     if (recipientId) {
       return fbMessage(recipientId, "yo bro!")
@@ -159,7 +168,6 @@ app.post('/webhook', (req, res) => {
               text, 
               sessions[sessionId].context 
             ).then((context) => {
-              console.log(context);
               console.log('Waiting for next user messages');
 
               // if (context['done']) {
