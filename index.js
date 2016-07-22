@@ -90,11 +90,10 @@ const actions = {
       return Promise.resolve()
     }
   },
-    merge({sessionId}, {text}) {
+    merge(req) {
     // Retrieve the location entity and store it into a context field
 
-     return fbMessage(recipientId, text)
-
+   
   }
 };
 
