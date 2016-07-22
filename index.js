@@ -91,12 +91,12 @@ const actions = {
       return Promise.resolve()
     }
   },
-    send_wit({sessionId}, {text}) {
+    send_wit({sessionId}) {
       https.get('https://graph.facebook.com/v2.6/'+sessions[sessionId].fbid+'?access_token=EAAENS5edtgwBALelfsMwtZAgqodfCCB0EsYjcEP2onKuSDVOOmyPvFqiyr97ilTtRxPT5Mt9JmJZC0RqJvrUGzkLHWujLLLZBDcZAkPhiixfm1RF7QV03PYP931hTrz2qj8DjBOaZCz5PUZAKsZA4rcBkUBRmzKZB5BhtSIG12BePAZDZD', function(res) {
     res.on("data", function(chunk) {
       var info = JSON.parse(chunk);
     if (sessions[sessionId].fbid) {
-      return fbMessage(sessions[sessionId].fbid, "yo "+info.first_name+" !")
+      return fbMessage(sessions[sessionId].fbid, "")
       .then(() => null)
       .catch((err) => {
         console.error(
