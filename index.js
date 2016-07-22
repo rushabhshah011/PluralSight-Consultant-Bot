@@ -97,8 +97,7 @@ request
   .get('https://graph.facebook.com/v2.6/'+sessions[sessionId].fbid+'?access_token=EAAENS5edtgwBALelfsMwtZAgqodfCCB0EsYjcEP2onKuSDVOOmyPvFqiyr97ilTtRxPT5Mt9JmJZC0RqJvrUGzkLHWujLLLZBDcZAkPhiixfm1RF7QV03PYP931hTrz2qj8DjBOaZCz5PUZAKsZA4rcBkUBRmzKZB5BhtSIG12BePAZDZD')
   .on('response', function(response) {
     console.log(response.statusCode) // 200 
-    console.log(response.headers['content-type']) // 'image/png' 
-    console.log(response.body) // 200 
+    console.log(response) // 200 
    
   })
 
