@@ -122,7 +122,7 @@ app.get('/webhook', (req, res) => {
 
 app.post('/webhook', (req, res) => {
   const data = req.body;
-
+console.log('received data', JSON.stringify(data));
   if (data.object === 'page') {
     data.entry.forEach(entry => {
       entry.messaging.forEach(event => {
@@ -130,7 +130,6 @@ app.post('/webhook', (req, res) => {
           const sender = event.sender.id;
 
           const sessionId = findOrCreateSession(sender);
-console.log(sessionId);
           const {text, attachments} = event.message;
 
           if (attachments) {
