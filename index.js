@@ -121,7 +121,7 @@ app.get('/webhook', (req, res) => {
 });
 
 app.post('/webhook', (req, res) => {
-	console.log(JSON.stringify(res));
+	console.log(req);
   const data = req.body;
 console.log('received data', JSON.stringify(data));
   if (data.object === 'page') {
