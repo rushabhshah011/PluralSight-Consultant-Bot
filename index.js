@@ -123,12 +123,10 @@ app.get('/webhook', (req, res) => {
 app.post('/webhook', (req, res) => {
 
   const data = req.body;
-console.log('received data', JSON.stringify(data));
   if (data.object === 'page') {
     data.entry.forEach(entry => {
       entry.messaging.forEach(event => {
         if (event.message) {
-			console.log("YO we got new message.");
           const sender = event.sender.id;
 
           const sessionId = findOrCreateSession(sender);
