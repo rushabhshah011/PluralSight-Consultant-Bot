@@ -91,22 +91,7 @@ const actions = {
     }
   },
     send_wit({sessionId}) {
-    const recipientId = sessions[sessionId].fbid;
-    if (recipientId) {
-      return fbMessage(recipientId, "yo bro!")
-      .then(() => null)
-      .catch((err) => {
-        console.error(
-          'Oops! An error occurred in send_wit while forwarding the response to',
-          recipientId,
-          ':',
-          err.stack || err
-        );
-      });
-    } else {
-      console.error('Oops! Couldn\'t find user for session:', sessionId);
-      return Promise.resolve()
-    }
+return "this is spartaa!!";
   },
 };
 
