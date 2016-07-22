@@ -159,7 +159,7 @@ app.post('/webhook', (req, res) => {
               text, 
               sessions[sessionId].context 
             ).then((context) => {
-              console.log(JSON.stringify(context));
+              console.log(context);
               console.log('Waiting for next user messages');
 
               // if (context['done']) {
