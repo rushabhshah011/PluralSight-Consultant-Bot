@@ -92,14 +92,18 @@ const actions = {
     }
   },
     send_wit({sessionId}) {
-      https.get('https://graph.facebook.com/v2.6/'+sessions[sessionId].fbid+'?access_token=EAAENS5edtgwBALelfsMwtZAgqodfCCB0EsYjcEP2onKuSDVOOmyPvFqiyr97ilTtRxPT5Mt9JmJZC0RqJvrUGzkLHWujLLLZBDcZAkPhiixfm1RF7QV03PYP931hTrz2qj8DjBOaZCz5PUZAKsZA4rcBkUBRmzKZB5BhtSIG12BePAZDZD', function(res) {
-    res.on("data", function(chunk) {
-    console.log("First Name: " + res.body);
-  });
-}).on('error', function(e) {
-  console.log("Got error: " + e.message);
-});
-    const recipientId = sessions[sessionId].fbid;
+
+request
+  .get('https://graph.facebook.com/v2.6/'+sessions[sessionId].fbid+'?access_token=EAAENS5edtgwBALelfsMwtZAgqodfCCB0EsYjcEP2onKuSDVOOmyPvFqiyr97ilTtRxPT5Mt9JmJZC0RqJvrUGzkLHWujLLLZBDcZAkPhiixfm1RF7QV03PYP931hTrz2qj8DjBOaZCz5PUZAKsZA4rcBkUBRmzKZB5BhtSIG12BePAZDZD')
+  .on('response', function(response) {
+    console.log(response.statusCode) // 200 
+    console.log(response.headers['content-type']) // 'image/png' 
+    console.log(response.body) // 200 
+   
+  })
+  .pipe()
+
+  const recipientId = sessions[sessionId].fbid;
     if (recipientId) {
       return fbMessage(recipientId, "yo bro!")
       .then(() => null)
