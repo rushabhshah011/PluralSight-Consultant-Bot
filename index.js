@@ -90,11 +90,6 @@ const actions = {
       return Promise.resolve()
     }
   },
-    merge(req) {
-    // Retrieve the location entity and store it into a context field
-
-   
-  }
 };
 
 const wit = new Wit({
