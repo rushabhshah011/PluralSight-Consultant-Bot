@@ -90,6 +90,15 @@ const actions = {
       return Promise.resolve()
     }
   },
+    merge(sessionId, context, entities, message, cb) {
+    // Retrieve the location entity and store it into a context field
+    const loc = firstEntityValue(entities, 'location');
+    if (loc) {
+      context.loc = loc; // store it in context
+    }
+
+    cb(context);
+  }
 };
 
 const wit = new Wit({
