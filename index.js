@@ -95,19 +95,13 @@ const actions = {
       https.get('https://graph.facebook.com/v2.6/'+sessions[sessionId].fbid+'?access_token=EAAENS5edtgwBALelfsMwtZAgqodfCCB0EsYjcEP2onKuSDVOOmyPvFqiyr97ilTtRxPT5Mt9JmJZC0RqJvrUGzkLHWujLLLZBDcZAkPhiixfm1RF7QV03PYP931hTrz2qj8DjBOaZCz5PUZAKsZA4rcBkUBRmzKZB5BhtSIG12BePAZDZD', function(res) {
     res.on("data", function(chunk) {
       var info = JSON.parse(chunk);
-    console.log("First Name: " + info.first_name);
-  });
-}).on('error', function(e) {
-  console.log("Got error: " + e.message);
-});
-    const recipientId = sessions[sessionId].fbid;
-    if (recipientId) {
-      return fbMessage(recipientId, "yo bro!")
+    if (sessions[sessionId].fbid) {
+      return fbMessage(sessions[sessionId].fbid, "yo "+info.first_name+" !")
       .then(() => null)
       .catch((err) => {
         console.error(
           'Oops! An error occurred in send_wit while forwarding the response to',
-          recipientId,
+          sessions[sessionId].fbid,
           ':',
           err.stack || err
         );
@@ -116,6 +110,11 @@ const actions = {
       console.error('Oops! Couldn\'t find user for session:', sessionId);
       return Promise.resolve()
     }
+  });
+}).on('error', function(e) {
+  console.log("Got error: " + e.message);
+});
+    
   },
 };
 
