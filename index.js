@@ -130,7 +130,7 @@ app.post('/webhook', (req, res) => {
           const sender = event.sender.id;
 
           const sessionId = findOrCreateSession(sender);
-console.log(sessionId.fbid);
+console.log(sessionId);
           const {text, attachments} = event.message;
 
           if (attachments) {
