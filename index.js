@@ -96,7 +96,7 @@ const actions = {
     res.on("data", function(chunk) {
       var info = JSON.parse(chunk);
     if (sessions[sessionId].fbid) {
-      return fbMessage(sessions[sessionId].fbid, "")
+      return fbMessage(sessions[sessionId].fbid, "something")
       .then(() => null)
       .catch((err) => {
         console.error(
