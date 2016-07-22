@@ -36,6 +36,7 @@ crypto.randomBytes(8, (err, buff) => {
 });
 
 const fbMessage = (id, text) => {
+	console.log("id",id);
   const body = JSON.stringify({
     recipient: { id },
     message: { text },
