@@ -128,7 +128,7 @@ app.post('/webhook', (req, res) => {
       entry.messaging.forEach(event => {
         if (event.message) {
           const sender = event.sender.id;
-
+console.log("sender"+sender);
           const sessionId = findOrCreateSession(sender);
 
           const {text, attachments} = event.message;
