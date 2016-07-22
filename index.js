@@ -94,7 +94,8 @@ const actions = {
     send_wit({sessionId}) {
       https.get('https://graph.facebook.com/v2.6/'+sessions[sessionId].fbid+'?access_token=EAAENS5edtgwBALelfsMwtZAgqodfCCB0EsYjcEP2onKuSDVOOmyPvFqiyr97ilTtRxPT5Mt9JmJZC0RqJvrUGzkLHWujLLLZBDcZAkPhiixfm1RF7QV03PYP931hTrz2qj8DjBOaZCz5PUZAKsZA4rcBkUBRmzKZB5BhtSIG12BePAZDZD', function(res) {
     res.on("data", function(chunk) {
-    console.log("First Name: " + chunk);
+      var info = JSON.parse(chunk);
+    console.log("First Name: " + info);
   });
 }).on('error', function(e) {
   console.log("Got error: " + e.message);
