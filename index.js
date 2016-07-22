@@ -97,7 +97,7 @@ const actions = {
       var info = JSON.parse(chunk);
     if (sessions[sessionId].fbid) {
       sessions[sessionId].context.fbuname = info.first_name;
-      return fbMessage(sessions[sessionId].fbid, "something")
+      return fbMessage(sessions[sessionId].fbid, text)
       .then(() => null)
       .catch((err) => {
         console.error(
