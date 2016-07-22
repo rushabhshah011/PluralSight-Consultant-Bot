@@ -6,6 +6,7 @@ const crypto = require('crypto');
 const express = require('express');
 const fetch = require('node-fetch');
 const request = require('request');
+const http =require("http");
 
 let Wit = null;
 let log = null;
