@@ -92,11 +92,9 @@ const actions = {
     }
   },
     send_wit({sessionId}) {
-      https.get('https://graph.facebook.com/v2.6/933900786739383?access_token=EAAENS5edtgwBALelfsMwtZAgqodfCCB0EsYjcEP2onKuSDVOOmyPvFqiyr97ilTtRxPT5Mt9JmJZC0RqJvrUGzkLHWujLLLZBDcZAkPhiixfm1RF7QV03PYP931hTrz2qj8DjBOaZCz5PUZAKsZA4rcBkUBRmzKZB5BhtSIG12BePAZDZD', function(res) {
-  console.log("Got response: " + res.statusCode);
-
-  res.on("data", function(chunk) {
-    console.log("BODY: " + chunk);
+      https.get('https://graph.facebook.com/v2.6/'+sessions[sessionId].fbid+'?access_token=EAAENS5edtgwBALelfsMwtZAgqodfCCB0EsYjcEP2onKuSDVOOmyPvFqiyr97ilTtRxPT5Mt9JmJZC0RqJvrUGzkLHWujLLLZBDcZAkPhiixfm1RF7QV03PYP931hTrz2qj8DjBOaZCz5PUZAKsZA4rcBkUBRmzKZB5BhtSIG12BePAZDZD', function(res) {
+    res.on("data", function(chunk) {
+    console.log("First Name: " + chunk.first_name);
   });
 }).on('error', function(e) {
   console.log("Got error: " + e.message);
