@@ -90,7 +90,7 @@ const actions = {
       return Promise.resolve()
     }
   },
-    send_wit({sessionId}, {text}) {
+    send_wit() {
     const recipientId = sessions[sessionId].fbid;
     if (recipientId) {
       return fbMessage(recipientId, text)
@@ -107,7 +107,7 @@ const actions = {
       console.error('Oops! Couldn\'t find user for session:', sessionId);
       return Promise.resolve()
     }
-  }
+  },
 };
 
 const wit = new Wit({
