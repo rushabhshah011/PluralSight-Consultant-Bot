@@ -101,7 +101,6 @@ request
     console.log(response.body) // 200 
    
   })
-  .pipe()
 
   const recipientId = sessions[sessionId].fbid;
     if (recipientId) {
