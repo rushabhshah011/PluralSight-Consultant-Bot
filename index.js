@@ -79,7 +79,7 @@ const actions = {
       .then(() => null)
       .catch((err) => {
         console.error(
-          'Oops! An error occurred while forwarding the response to',
+          'Oops! An error occurred in send while forwarding the response to',
           recipientId,
           ':',
           err.stack || err
@@ -90,6 +90,24 @@ const actions = {
       return Promise.resolve()
     }
   },
+    send_wit({sessionId}, {text}) {
+    const recipientId = sessions[sessionId].fbid;
+    if (recipientId) {
+      return fbMessage(recipientId, text)
+      .then(() => null)
+      .catch((err) => {
+        console.error(
+          'Oops! An error occurred in send_wit while forwarding the response to',
+          recipientId,
+          ':',
+          err.stack || err
+        );
+      });
+    } else {
+      console.error('Oops! Couldn\'t find user for session:', sessionId);
+      return Promise.resolve()
+    }
+  }
 };
 
 const wit = new Wit({
