@@ -90,10 +90,10 @@ const actions = {
       return Promise.resolve()
     }
   },
-    send_wit() {
+    send_wit({sessionId}) {
     const recipientId = sessions[sessionId].fbid;
     if (recipientId) {
-      return fbMessage(recipientId, text)
+      return fbMessage(recipientId, "yo bro!")
       .then(() => null)
       .catch((err) => {
         console.error(
