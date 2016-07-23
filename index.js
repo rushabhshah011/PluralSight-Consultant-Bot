@@ -97,7 +97,6 @@ const actions = {
       var info = JSON.parse(chunk);
       if (sessions[sessionId].fbid) {
         sessions[sessionId].context.fbuname = info.first_name;
-        return true;
      }
   });
 }).on('error', function(e) {
