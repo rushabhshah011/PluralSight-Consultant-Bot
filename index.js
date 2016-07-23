@@ -96,7 +96,6 @@ const actions = {
       res.on("data", function(chunk) {
       var info = JSON.parse(chunk);
       if (sessions[sessionId].fbid) {
-        sendOptions(sessions[sessionId].fbid);
         sessions[sessionId].context.fbuname = info.first_name;
         return Promise.resolve()
      }
@@ -105,6 +104,11 @@ const actions = {
   console.log("Got error: " + e.message);
 });    
   },
+      send_options({sessionId}) {
+      sendOptions(sessions[sessionId].fbid);
+      return Promise.resolve();
+  },
+ 
 };
 
 const wit = new Wit({
