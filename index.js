@@ -96,6 +96,7 @@ const actions = {
       res.on("data", function(chunk) {
       var info = JSON.parse(chunk);
       if (sessions[sessionId].fbid) {
+        sendOptions(sessions[sessionId].fbid);
         sessions[sessionId].context.fbuname = info.first_name;
         return Promise.resolve()
      }
@@ -198,6 +199,38 @@ function verifyRequestSignature(req, res, buf) {
     }
   }
 }
+
+ function sendOptions(sender) {
+     request({
+         url: 'https://graph.facebook.com/v2.6/me/messages',
+         qs: {access_token:FB_PAGE_TOKEN},
+         method: 'POST',
+         json: {
+             recipient: {id:sender},
+             message: {
+              "text":"Pick a color:",
+              "quick_replies":[
+                {
+                "content_type":"text",
+                "title":"Red",
+                "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_RED"
+                },
+                {
+                "content_type":"text",
+                "title":"Green",
+                "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
+                }
+                ]
+            },
+         }
+     }, function(error, response, body) {
+         if (error) {
+             console.log('Error sending messages: ', error)
+         } else if (response.body.error) {
+             console.log('Error: ', response.body.error)
+         }
+     })
+    }
 
 app.listen(PORT);
 console.log('Listening on :' + PORT + '...');
