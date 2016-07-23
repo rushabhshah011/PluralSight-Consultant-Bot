@@ -97,16 +97,12 @@ const actions = {
       var info = JSON.parse(chunk);
       if (sessions[sessionId].fbid) {
         sessions[sessionId].context.fbuname = info.first_name;
-        return Promise.resolve()
+        return true;
      }
   });
 }).on('error', function(e) {
   console.log("Got error: " + e.message);
 });    
-  },
-      send_options({sessionId}) {
-      sendOptions(sessions[sessionId].fbid);
-      return;
   },
  
 };
