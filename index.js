@@ -106,7 +106,7 @@ const actions = {
   },
       send_options({sessionId}) {
       sendOptions(sessions[sessionId].fbid);
-      return Promise.resolve();
+      return;
   },
  
 };
