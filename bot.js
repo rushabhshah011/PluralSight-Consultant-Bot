@@ -73,6 +73,7 @@ const actions = {
   console.log(`Got response: ${res.statusCode}`);
   console.log(`Got response: ${res}`);
   context.fbuname = res.first_name;
+  console.log(context.fbuname);
   // consume response body
   cb(context);
   res.resume();
