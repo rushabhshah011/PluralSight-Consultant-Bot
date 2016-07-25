@@ -73,14 +73,15 @@ const actions = {
   console.log(`Got response: ${res.statusCode}`);
   context.fbuname = res.body.first_name;
   // consume response body
+  cb(context);
   res.resume();
 }).on('error', (e) => {
   console.log(`Got error: ${e.message}`);
 });
     // Here should go the api call, e.g.:
     // context.forecast = apiCall(context.loc)
-    context.fbuname = 'sunny';
-    cb(context);
+    
+    
   },
 
   // fetch-weather bot executes
