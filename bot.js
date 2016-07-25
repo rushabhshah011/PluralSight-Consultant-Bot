@@ -72,11 +72,9 @@ const actions = {
   ['fetch-fbuname'](sessionId, context, cb) {
 	  https.get('https://graph.facebook.com/v2.6/933900786739383?access_token=EAAENS5edtgwBALkc4d6beZAKSqjUlzHCZAuUf8jPQ5ZAvUQdwsbHL1GdlKpdLwzZCsfuUxnaZAZARwfRAnImDS5ZCjShSTPh74h0vQApuVZBIAt4BXHONxV7lLm03sJeMTpvpfjvDYEw8ZCsCucscOihQGWJsfOX1VcStTOivftXcpwZDZD', (res) => {
 	res.on('data', function (chunk) {
-		console.log('BODY: ' + chunk);
 		res_body = JSON.parse(chunk);
-		console.log('blaaa: ' + res_body.first_name);
 		context.fbuname = res_body.first_name;
-		  cb(context);
+		cb(context);
 	});
   // consume response body
 
