@@ -74,9 +74,10 @@ const actions = {
 		console.log('BODY: ' + chunk);
 		
 		context.fbuname = "Rushabh";
+		  cb(context);
 	});
   // consume response body
-  cb(context);
+
 }).on('error', (e) => {
   console.log(`Got error: ${e.message}`);
 });
