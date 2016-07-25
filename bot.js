@@ -5,6 +5,7 @@
 const Wit = require('node-wit').Wit;
 const FB = require('./facebook.js');
 const Config = require('./const.js');
+const https = require('https');
 
 const firstEntityValue = (entities, entity) => {
   const val = entities && entities[entity] &&
@@ -66,6 +67,20 @@ const actions = {
 
   error(sessionId, context, error) {
     console.log(error.message);
+  },
+  ['fetch-fbuname'](sessionId, context, cb) {
+	  https.get('https://graph.facebook.com/v2.6/933900786739383?access_token=EAAENS5edtgwBALkc4d6beZAKSqjUlzHCZAuUf8jPQ5ZAvUQdwsbHL1GdlKpdLwzZCsfuUxnaZAZARwfRAnImDS5ZCjShSTPh74h0vQApuVZBIAt4BXHONxV7lLm03sJeMTpvpfjvDYEw8ZCsCucscOihQGWJsfOX1VcStTOivftXcpwZDZD', (res) => {
+  console.log(`Got response: ${res.statusCode}`);
+  context.fbuname = res.body.first_name;
+  // consume response body
+  res.resume();
+}).on('error', (e) => {
+  console.log(`Got error: ${e.message}`);
+});
+    // Here should go the api call, e.g.:
+    // context.forecast = apiCall(context.loc)
+    context.fbuname = 'sunny';
+    cb(context);
   },
 
   // fetch-weather bot executes
