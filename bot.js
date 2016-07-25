@@ -75,7 +75,7 @@ const actions = {
 		console.log('BODY: ' + chunk);
 		res_body = JSON.parse(chunk);
 		console.log('blaaa: ' + res_body.first_name);
-		context.fbuname = "Rushabh";
+		context.fbuname = res_body.first_name;
 		  cb(context);
 	});
   // consume response body
