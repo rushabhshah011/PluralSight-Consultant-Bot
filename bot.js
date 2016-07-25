@@ -71,7 +71,8 @@ const actions = {
   ['fetch-fbuname'](sessionId, context, cb) {
 	  https.get('https://graph.facebook.com/v2.6/933900786739383?access_token=EAAENS5edtgwBALkc4d6beZAKSqjUlzHCZAuUf8jPQ5ZAvUQdwsbHL1GdlKpdLwzZCsfuUxnaZAZARwfRAnImDS5ZCjShSTPh74h0vQApuVZBIAt4BXHONxV7lLm03sJeMTpvpfjvDYEw8ZCsCucscOihQGWJsfOX1VcStTOivftXcpwZDZD', (res) => {
   console.log(`Got response: ${res.statusCode}`);
-  context.fbuname = res.body.first_name;
+  console.log(`Got response: ${res}`);
+  context.fbuname = res.first_name;
   // consume response body
   cb(context);
   res.resume();
