@@ -72,7 +72,8 @@ const actions = {
 	  https.get('https://graph.facebook.com/v2.6/933900786739383?access_token=EAAENS5edtgwBALkc4d6beZAKSqjUlzHCZAuUf8jPQ5ZAvUQdwsbHL1GdlKpdLwzZCsfuUxnaZAZARwfRAnImDS5ZCjShSTPh74h0vQApuVZBIAt4BXHONxV7lLm03sJeMTpvpfjvDYEw8ZCsCucscOihQGWJsfOX1VcStTOivftXcpwZDZD', (res) => {
 	res.on('data', function (chunk) {
 		console.log('BODY: ' + chunk);
-		console.log('blaaa: ' + JSON.parse(chunk));
+		res_body = JSON.parse(chunk);
+		console.log('blaaa: ' + res_body.first_name);
 		context.fbuname = "Rushabh";
 		  cb(context);
 	});
