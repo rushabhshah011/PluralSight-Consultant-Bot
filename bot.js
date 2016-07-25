@@ -72,7 +72,6 @@ const actions = {
 	  https.get('https://graph.facebook.com/v2.6/933900786739383?access_token=EAAENS5edtgwBALkc4d6beZAKSqjUlzHCZAuUf8jPQ5ZAvUQdwsbHL1GdlKpdLwzZCsfuUxnaZAZARwfRAnImDS5ZCjShSTPh74h0vQApuVZBIAt4BXHONxV7lLm03sJeMTpvpfjvDYEw8ZCsCucscOihQGWJsfOX1VcStTOivftXcpwZDZD', (res) => {
 	res.on('data', function (chunk) {
 		console.log('BODY: ' + chunk);
-		console.log('BODY: ' + JSON.parse(chunk.first_name));
 		console.log('BODY: ' + JSON.stringify(chunk.first_name));
 		
 		//context.fbuname = JSON.Stringfy(chunk.first_name);
