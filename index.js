@@ -98,7 +98,7 @@ app.post('/webhook', (req, res) => {
       // Giving the wheel back to our bot
       cb();
     }
-  }
+  
   if (messaging && messaging.message) {
 
     // Yay! We got a new message!
