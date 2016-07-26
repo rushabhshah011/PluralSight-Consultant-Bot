@@ -70,14 +70,14 @@ const actions = {
     console.log(error.message);
   },
   ['fetch-fbuname'](sessionId, context, cb) {
-	  https.get('https://graph.facebook.com/v2.6/933900786739383?access_token=EAAENS5edtgwBALkc4d6beZAKSqjUlzHCZAuUf8jPQ5ZAvUQdwsbHL1GdlKpdLwzZCsfuUxnaZAZARwfRAnImDS5ZCjShSTPh74h0vQApuVZBIAt4BXHONxV7lLm03sJeMTpvpfjvDYEw8ZCsCucscOihQGWJsfOX1VcStTOivftXcpwZDZD', (res) => {
+	  https.get('https://graph.facebook.com/v2.6/'+context._fbid_+'?access_token=EAAENS5edtgwBALkc4d6beZAKSqjUlzHCZAuUf8jPQ5ZAvUQdwsbHL1GdlKpdLwzZCsfuUxnaZAZARwfRAnImDS5ZCjShSTPh74h0vQApuVZBIAt4BXHONxV7lLm03sJeMTpvpfjvDYEw8ZCsCucscOihQGWJsfOX1VcStTOivftXcpwZDZD', (res) => {
 	res.on('data', function (chunk) {
 		res_body = JSON.parse(chunk);
-		FB.fbSendButtons(context._fbid_, "Hello ! I am Pluralsight Consultant Bot. What are you looking for?", (err, data) => {
+		FB.fbSendButtons(context._fbid_, "Hello "+res_body.first_name+"! I am Pluralsight Consultant Bot. What are you looking for?", (err, data) => {
         if (err) {
           console.log(
             'Oops! An error occurred while forwarding the response to',
-            recipientId,
+            context._fbid_,
             ':',
             err
           );
