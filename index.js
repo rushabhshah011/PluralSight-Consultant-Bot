@@ -82,17 +82,7 @@ app.post('/webhook', (req, res) => {
   
   if(messaging.postback){
 	  console.log(messaging.postback.payload);
-	  FB.fbQuickReplies(messaging.sender.id, "Hello", (err, data) => {
-        if (err) {
-          console.log(
-            'Oops! An error occurred while forwarding the response to',
-            messaging.sender.id,
-            ':',
-            err
-          );
-        }
-
-      });
+	  FB.fbQuickReplies(messaging.sender.id);
   }
   
   if (messaging && messaging.message) {
