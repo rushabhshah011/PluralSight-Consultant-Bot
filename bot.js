@@ -84,7 +84,7 @@ const actions = {
         }
 
         // Let's give the wheel back to our bot
-        cb();
+        cb(context);
       });
 	});
   // consume response body
