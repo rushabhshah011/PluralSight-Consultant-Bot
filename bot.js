@@ -37,7 +37,7 @@ const actions = {
     if (recipientId) {
       // Yay, we found our recipient!
       // Let's forward our bot response to her.
-      FB.fbSendButtons(recipientId, message, (err, data) => {
+      FB.fbMessage(recipientId, message, (err, data) => {
         if (err) {
           console.log(
             'Oops! An error occurred while forwarding the response to',
@@ -73,8 +73,20 @@ const actions = {
 	  https.get('https://graph.facebook.com/v2.6/933900786739383?access_token=EAAENS5edtgwBALkc4d6beZAKSqjUlzHCZAuUf8jPQ5ZAvUQdwsbHL1GdlKpdLwzZCsfuUxnaZAZARwfRAnImDS5ZCjShSTPh74h0vQApuVZBIAt4BXHONxV7lLm03sJeMTpvpfjvDYEw8ZCsCucscOihQGWJsfOX1VcStTOivftXcpwZDZD', (res) => {
 	res.on('data', function (chunk) {
 		res_body = JSON.parse(chunk);
-		context.fbuname = res_body.first_name;
-		cb(context);
+		message = "Hello "+res_body.first_name+"! I am Pluralsight Consultant Bot. What are you looking for?";
+		FB.fbSendButtons(recipientId, message, (err, data) => {
+        if (err) {
+          console.log(
+            'Oops! An error occurred while forwarding the response to',
+            recipientId,
+            ':',
+            err
+          );
+        }
+
+        // Let's give the wheel back to our bot
+        cb();
+      });
 	});
   // consume response body
 

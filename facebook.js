@@ -80,18 +80,24 @@ const fbSendButtons = (recipientId, msg, cb) => {
       "type":"template",
       "payload":{
         "template_type":"button",
-        "text":"What do you want to do next?",
+        "text": msg,
         "buttons":[
           {
-            "type":"web_url",
-            "url":"https://petersapparel.parseapp.com",
-            "title":"Show Website"
+            "type":"postback",
+            "title":"Newest Courses",
+            "payload":"USER_DEFINED_PAYLOAD"
           },
           {
             "type":"postback",
-            "title":"Start Chatting",
+            "title":"Learning Path",
+            "payload":"USER_DEFINED_PAYLOAD"
+          },
+          {
+            "type":"postback",
+            "title":"Live Mentoring",
             "payload":"USER_DEFINED_PAYLOAD"
           }
+
         ]
       }
     }
