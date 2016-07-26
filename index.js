@@ -90,7 +90,6 @@ app.post('/webhook', (req, res) => {
 
     // We retrieve the message content
     const msg = messaging.postback.payload;
-    const atts = messaging.message.attachments;
 	
 	  console.log(messaging.postback.payload);
 	  FB.fbQuickReplies(messaging.sender.id);
