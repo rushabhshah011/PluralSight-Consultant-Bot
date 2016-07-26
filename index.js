@@ -78,6 +78,8 @@ app.get('/webhook', (req, res) => {
 app.post('/webhook', (req, res) => {
   // Parsing the Messenger API response
   const messaging = FB.getFirstMessagingEntry(req.body);
+  
+  
   if(messaging.postback){
 	  console.log(messaging.postback.payload);
 	  FB.fbQuickReplies(messaging.sender.id, "Hello", (err, data) => {
@@ -90,14 +92,8 @@ app.post('/webhook', (req, res) => {
           );
         }
 
-        // Let's give the wheel back to our bot
-        cb();
       });
-    } else {
-      console.log('Oops! Couldn\'t find user in context:', context);
-      // Giving the wheel back to our bot
-      cb();
-    }
+
   
   if (messaging && messaging.message) {
 
