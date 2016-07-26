@@ -44,17 +44,17 @@ const fbQuickReplies = (recipientId, msg, cb) => {
         id: recipientId,
       },
       message: {
-    "text":"Pick a color:",
+    "text":"Can you tell me for whom you are looking for?",
     "quick_replies":[
       {
         "content_type":"text",
-        "title":"Red",
-        "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_RED"
+        "title":"Individuals",
+        "payload":"indi"
       },
       {
         "content_type":"text",
-        "title":"Green",
-        "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
+        "title":"Businesses",
+        "payload":"biz"
       }
     ]
   },
@@ -85,17 +85,17 @@ const fbSendButtons = (recipientId, msg, cb) => {
           {
             "type":"postback",
             "title":"Newest Courses",
-            "payload":"USER_DEFINED_PAYLOAD"
+            "payload":"course"
           },
           {
             "type":"postback",
             "title":"Learning Path",
-            "payload":"USER_DEFINED_PAYLOAD"
+            "payload":"path"
           },
           {
             "type":"postback",
             "title":"Live Mentoring",
-            "payload":"USER_DEFINED_PAYLOAD"
+            "payload":"mentor"
           }
 
         ]

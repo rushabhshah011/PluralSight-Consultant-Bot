@@ -80,6 +80,7 @@ app.post('/webhook', (req, res) => {
   const messaging = FB.getFirstMessagingEntry(req.body);
   if(messaging.postback){
 	  console.log(messaging.postback.payload);
+	  FB.fbQuickReplies(messaging.sender.id);
   }
   if (messaging && messaging.message) {
 
