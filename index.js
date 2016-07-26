@@ -80,7 +80,24 @@ app.post('/webhook', (req, res) => {
   const messaging = FB.getFirstMessagingEntry(req.body);
   if(messaging.postback){
 	  console.log(messaging.postback.payload);
-	  FB.fbQuickReplies(messaging.sender.id);
+	  FB.fbQuickReplies(messaging.sender.id, message, (err, data) => {
+        if (err) {
+          console.log(
+            'Oops! An error occurred while forwarding the response to',
+            recipientId,
+            ':',
+            err
+          );
+        }
+
+        // Let's give the wheel back to our bot
+        cb();
+      });
+    } else {
+      console.log('Oops! Couldn\'t find user in context:', context);
+      // Giving the wheel back to our bot
+      cb();
+    }
   }
   if (messaging && messaging.message) {
 
