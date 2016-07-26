@@ -81,7 +81,6 @@ app.post('/webhook', (req, res) => {
   if(messaging.postback){
 	  console.log(messaging.postback.payload);
 	  FB.fbQuickReplies(messaging.sender.id);
-	  cb();
   }
   if (messaging && messaging.message) {
 
