@@ -93,7 +93,7 @@ app.post('/webhook', (req, res) => {
         }
 
       });
-
+  }
   
   if (messaging && messaging.message) {
 
