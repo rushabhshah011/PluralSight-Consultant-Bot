@@ -127,5 +127,6 @@ module.exports = {
   getFirstMessagingEntry: getFirstMessagingEntry,
   fbMessage: fbMessage,
   fbReq: fbReq,
-  fbQuickReplies: fbQuickReplies
+  fbQuickReplies: fbQuickReplies,
+  fbSendButtons: fbSendButtons
 };
