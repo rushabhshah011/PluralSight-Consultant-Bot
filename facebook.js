@@ -69,6 +69,43 @@ const fbQuickReplies = (recipientId, msg, cb) => {
 };
 
 
+const fbSendButtons = (recipientId, msg, cb) => {
+  const opts = {
+    form: {
+      recipient: {
+        id: recipientId,
+      },
+      message: {
+    "attachment":{
+      "type":"template",
+      "payload":{
+        "template_type":"button",
+        "text":"What do you want to do next?",
+        "buttons":[
+          {
+            "type":"web_url",
+            "url":"https://petersapparel.parseapp.com",
+            "title":"Show Website"
+          },
+          {
+            "type":"postback",
+            "title":"Start Chatting",
+            "payload":"USER_DEFINED_PAYLOAD"
+          }
+        ]
+      }
+    }
+  },
+    },
+  };
+
+  fbReq(opts, (err, resp, data) => {
+    if (cb) {
+      cb(err || data.error && data.error.message, data);
+    }
+  });
+};
+
 // See the Webhook reference
 // https://developers.facebook.com/docs/messenger-platform/webhook-reference
 const getFirstMessagingEntry = (body) => {
