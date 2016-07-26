@@ -81,8 +81,11 @@ app.post('/webhook', (req, res) => {
   
   
   if(messaging.postback){
-	  console.log(messaging.postback.payload);
-	  FB.fbQuickReplies(messaging.sender.id);
+	  if(messaging.postback.payload == "mentor")
+	  {
+		FB.fbQuickReplies(messaging.sender.id);  
+	  }
+	  
   }
   
   if (messaging && messaging.message) {
