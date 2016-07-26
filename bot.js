@@ -73,7 +73,7 @@ const actions = {
 	  https.get('https://graph.facebook.com/v2.6/933900786739383?access_token=EAAENS5edtgwBALkc4d6beZAKSqjUlzHCZAuUf8jPQ5ZAvUQdwsbHL1GdlKpdLwzZCsfuUxnaZAZARwfRAnImDS5ZCjShSTPh74h0vQApuVZBIAt4BXHONxV7lLm03sJeMTpvpfjvDYEw8ZCsCucscOihQGWJsfOX1VcStTOivftXcpwZDZD', (res) => {
 	res.on('data', function (chunk) {
 		res_body = JSON.parse(chunk);
-		FB.fbSendButtons(recipientId, "Hello "+res_body.first_name+"! I am Pluralsight Consultant Bot. What are you looking for?", (err, data) => {
+		FB.fbSendButtons(recipientId, "Hello ! I am Pluralsight Consultant Bot. What are you looking for?", (err, data) => {
         if (err) {
           console.log(
             'Oops! An error occurred while forwarding the response to',
