@@ -79,7 +79,7 @@ app.post('/webhook', (req, res) => {
   // Parsing the Messenger API response
   const messaging = FB.getFirstMessagingEntry(req.body);
   if(messaging.postback){
-	  console.log("Postback");
+	  console.log(messaging.postback.payload);
   }
   if (messaging && messaging.message) {
 
