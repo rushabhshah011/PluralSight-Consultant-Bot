@@ -89,7 +89,7 @@ app.post('/webhook', (req, res) => {
     const sessionId = findOrCreateSession(sender);
 
     // We retrieve the message content
-    const msg = messaging.message.text;
+    const msg = messaging.postback.payload;
     const atts = messaging.message.attachments;
 	
 	  console.log(messaging.postback.payload);
