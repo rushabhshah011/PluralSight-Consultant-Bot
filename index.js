@@ -78,21 +78,24 @@ app.get('/webhook', (req, res) => {
 app.post('/webhook', (req, res) => {
   // Parsing the Messenger API response
   const messaging = FB.getFirstMessagingEntry(req.body);
-  
-  
+  const sender = messaging.sender.id;  
+  const sessionId = findOrCreateSession(sender);
+ 
   if(messaging.postback){
 	  
-	      const sender = messaging.sender.id;
+
 
     // We retrieve the user's current session, or create one if it doesn't exist
     // This is needed for our bot to figure out the conversation history
-    const sessionId = findOrCreateSession(sender);
-
+  
     // We retrieve the message content
     const msg = messaging.postback.payload;
 	
 	  console.log(messaging.postback.payload);
-	  FB.fbQuickReplies(messaging.sender.id);
+	  if(messaging.postback.payload == 'mentor')
+	  {
+	  FB.fbQuickReplies(messaging.sender.id,"In order to Suggest Mentors, i need to ask few questions. Is it okay?","Yes","NO");
+	  }
 
   }
   
@@ -101,11 +104,6 @@ app.post('/webhook', (req, res) => {
     // Yay! We got a new message!
 
     // We retrieve the Facebook user ID of the sender
-    const sender = messaging.sender.id;
-
-    // We retrieve the user's current session, or create one if it doesn't exist
-    // This is needed for our bot to figure out the conversation history
-    const sessionId = findOrCreateSession(sender);
 
     // We retrieve the message content
     const msg = messaging.message.text;

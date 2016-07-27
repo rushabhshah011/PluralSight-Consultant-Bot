@@ -37,23 +37,23 @@ const fbMessage = (recipientId, msg, cb) => {
   });
 };
 
-const fbQuickReplies = (recipientId, msg, cb) => {
+const fbQuickReplies = (recipientId, msg,t1,t2, cb) => {
   const opts = {
     form: {
       recipient: {
         id: recipientId,
       },
       message: {
-    "text":"Can you tell me for whom you are looking for?",
+    "text":msg,
     "quick_replies":[
       {
         "content_type":"text",
-        "title":"Individuals",
+        "title":t1,
         "payload":"indi"
       },
       {
         "content_type":"text",
-        "title":"Businesses",
+        "title":t2,
         "payload":"biz"
       }
     ]
@@ -126,7 +126,7 @@ const fbSendURL = (recipientId, msg, cb) => {
       "type":"template",
       "payload":{
         "template_type":"button",
-        "text": "Sorry I am programmed to help individuals only.You can request FREE Pilot here",
+        "text": "Sorry, I am programmed to help individuals only.You can request FREE Pilot here",
         "buttons":[
 		{
             "type":"web_url",
