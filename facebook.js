@@ -104,6 +104,8 @@ const fbSendButtons = (recipientId, msg, cb) => {
   },
     },
   };
+  
+  
 
   fbReq(opts, (err, resp, data) => {
     if (cb) {
@@ -112,6 +114,43 @@ const fbSendButtons = (recipientId, msg, cb) => {
   });
 };
 
+
+const fbSendURL = (recipientId, msg, cb) => {
+  const opts = {
+    form: {
+      recipient: {
+        id: recipientId,
+      },
+      message: {
+    "attachment":{
+      "type":"template",
+      "payload":{
+        "template_type":"button",
+        "text": "Sorry I am programmed to help individuals only.You can request FREE Pilot here",
+        "buttons":[
+		{
+            "type":"web_url",
+            "url":"https://learn.pluralsight.com/offers/Pilot-Request-Business",
+            "title":"FREE Pilot"
+         }
+		 ]
+      }
+    }
+  },
+    },
+  }; 
+  
+  
+
+  fbReq(opts, (err, resp, data) => {
+    if (cb) {
+      cb(err || data.error && data.error.message, data);
+    }
+  });
+};
+
+
+ 
 // See the Webhook reference
 // https://developers.facebook.com/docs/messenger-platform/webhook-reference
 const getFirstMessagingEntry = (body) => {
@@ -134,5 +173,6 @@ module.exports = {
   fbMessage: fbMessage,
   fbReq: fbReq,
   fbQuickReplies: fbQuickReplies,
-  fbSendButtons: fbSendButtons
+  fbSendButtons: fbSendButtons,
+  fbSendURL:fbSendURL
 };
