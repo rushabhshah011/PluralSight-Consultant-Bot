@@ -94,7 +94,7 @@ app.post('/webhook', (req, res) => {
 	  console.log(messaging.postback.payload);
 	  if(messaging.postback.payload == 'mentor')
 	  {
-		  sessions[sessionId].context.opt = "mentor" ;
+		 // sessions[sessionId].context.opt = "mentor" ;
 	  FB.fbQuickReplies(messaging.sender.id,"In order to Suggest Mentors, i need to ask few questions. Is it okay?","Yes","NO");
 	  }
 
