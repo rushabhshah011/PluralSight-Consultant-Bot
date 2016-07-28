@@ -1,9 +1,9 @@
 'use strict';
 
-// See the Send API reference
-// https://developers.facebook.com/docs/messenger-platform/send-api-reference
+
 const request = require('request');
 const Config = require('./const.js');
+const fbmsg;
 
 const fbReq = request.defaults({
   uri: 'https://graph.facebook.com/me/messages',
@@ -37,9 +37,52 @@ const fbMessage = (recipientId, msg, cb) => {
   });
 };
 
+const fbSendButtons = (recipientId, msg, cb) => {
+	fbmsg = {
+    "attachment":{
+      "type":"template",
+      "payload":{
+        "template_type":"button",
+        "text": msg,
+        "buttons":[
+          {
+            "type":"postback",
+            "title":"Newest Courses",
+            "payload":"course"
+          },
+          {
+            "type":"postback",
+            "title":"Learning Path",
+            "payload":"path"
+          },
+          {
+            "type":"postback",
+            "title":"Live Mentoring",
+            "payload":"mentor"
+          }
+        ]
+      }
+    }
+	}
+  const opts = {
+    form: {
+      recipient: {
+        id: recipientId,
+      },
+      message: {
+        text: fbmsg,
+      },
+    },
+  };
 
-// See the Webhook reference
-// https://developers.facebook.com/docs/messenger-platform/webhook-reference
+  fbReq(opts, (err, resp, data) => {
+    if (cb) {
+      cb(err || data.error && data.error.message, data);
+    }
+  });
+};
+
+
 const getFirstMessagingEntry = (body) => {
   const val = body.object === 'page' &&
     body.entry &&
@@ -58,5 +101,6 @@ const getFirstMessagingEntry = (body) => {
 module.exports = {
   getFirstMessagingEntry: getFirstMessagingEntry,
   fbMessage: fbMessage,
-  fbReq: fbReq
+  fbReq: fbReq,
+  fbSendButtons:fbSendButtons
 };
