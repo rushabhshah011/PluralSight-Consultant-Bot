@@ -3,7 +3,7 @@
 
 const request = require('request');
 const Config = require('./const.js');
-const fbmsg;
+const fbmsg = "";
 
 const fbReq = request.defaults({
   uri: 'https://graph.facebook.com/me/messages',
