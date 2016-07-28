@@ -113,7 +113,22 @@ const actions = {
       });    
     
   },
+    ['sendOpts'](sessionId, context, cb) {
+		FB.fbQuickReplies(context._fbid_, "Hello", (err, data) => {
+        if (err) {
+          console.log(
+            'Oops! An error occurred while forwarding the response to',
+            context._fbid_,
+            ':',
+            err
+          );
+        }
 
+        // Let's give the wheel back to our bot
+        cb(context);
+      });    
+    
+  },
   // fetch-weather bot executes
   ['fetch-weather'](sessionId, context, cb) {
     // Here should go the api call, e.g.:
