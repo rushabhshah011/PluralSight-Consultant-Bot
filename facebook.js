@@ -39,7 +39,13 @@ const fbMessage = (recipientId, msg, cb) => {
 };
 
 const fbSendButtons = (recipientId, msg, cb) => {
-	fbmsg = {
+  const opts = {
+    form: {
+      recipient: {
+        id: recipientId,
+      },
+      message: {
+        text: {
     "attachment":{
       "type":"template",
       "payload":{
@@ -64,14 +70,7 @@ const fbSendButtons = (recipientId, msg, cb) => {
         ]
       }
     }
-	}
-  const opts = {
-    form: {
-      recipient: {
-        id: recipientId,
-      },
-      message: {
-        text: utf8.encode(fbmsg),
+	},
       },
     },
   };
