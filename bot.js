@@ -64,6 +64,7 @@ const actions = {
 
    cb();
  });
+ 		cb(context);
  },
  ['Send-Options'](sessionId, context, cb) {
 	      FB.fbSendButtons(context._fbid_, "What are you looking for?", (err, data) => {
