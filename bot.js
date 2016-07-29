@@ -64,22 +64,10 @@ const actions = {
 
    cb();
  });
- 		cb(context);
  },
  ['Send-Options'](sessionId, context, cb) {
-	      FB.fbSendButtons(context._fbid_, "What are you looking for?", (err, data) => {
-        if (err) {
-          console.log(
-            'Oops! An error occurred while forwarding the response to',
-            context._fbid_,
-            ':',
-            err
-          );
-		cb();
-        }
-
-        cb(context);
-      });
+	 console.log(context._fbid_);
+		cb(context);	     
  },
 
 };
