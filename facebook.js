@@ -3,6 +3,7 @@
 
 const request = require('request');
 const Config = require('./const.js');
+var utf8 = require('utf8');
 var fbmsg = "";
 
 const fbReq = request.defaults({
@@ -70,7 +71,7 @@ const fbSendButtons = (recipientId, msg, cb) => {
         id: recipientId,
       },
       message: {
-        text: fbmsg,
+        text: utf8.encode(fbmsg),
       },
     },
   };
