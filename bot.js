@@ -55,7 +55,7 @@ const actions = {
   error(sessionId, context, error) {
     console.log(error.message);
   },
-   ['fetch-FBuname'](sessionId, context, cb) {
+  ['fetch-FBuname'](sessionId, context, cb) {
 	https.get('https://graph.facebook.com/v2.6/'+context._fbid_+'?access_token=EAAENS5edtgwBALkc4d6beZAKSqjUlzHCZAuUf8jPQ5ZAvUQdwsbHL1GdlKpdLwzZCsfuUxnaZAZARwfRAnImDS5ZCjShSTPh74h0vQApuVZBIAt4BXHONxV7lLm03sJeMTpvpfjvDYEw8ZCsCucscOihQGWJsfOX1VcStTOivftXcpwZDZD', (res) => {
  	res.on('data', function (chunk) {
  		res_body = JSON.parse(chunk);
