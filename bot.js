@@ -68,7 +68,7 @@ const actions = {
  ['Send-Options'](sessionId, context, cb) {
 	 console.log(context._fbid_);
 	  const recipientId = context._fbid_;
- FB.fbSendButtons(recipientId, "What are you looking for?", (err, data) => {
+ FB.fbSendButtons(recipientId,"What are you looking for?", (err, data) => {
         if (err) {
           console.log(
             'Oops! An error occurred while forwarding the response to',
