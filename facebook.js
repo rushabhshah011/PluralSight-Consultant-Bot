@@ -45,34 +45,26 @@ const fbSendButtons = (recipientId, msg, cb) => {
         id: recipientId,
       },
       message: {
-        text: {
     "attachment":{
       "type":"template",
       "payload":{
         "template_type":"button",
-        "text": msg,
+        "text":"What do you want to do next?",
         "buttons":[
           {
-            "type":"postback",
-            "title":"Newest Courses",
-            "payload":"course"
+            "type":"web_url",
+            "url":"https://petersapparel.parseapp.com",
+            "title":"Show Website"
           },
           {
             "type":"postback",
-            "title":"Learning Path",
-            "payload":"path"
-          },
-          {
-            "type":"postback",
-            "title":"Live Mentoring",
-            "payload":"mentor"
+            "title":"Start Chatting",
+            "payload":"USER_DEFINED_PAYLOAD"
           }
         ]
       }
     }
-	},
-      },
-    },
+  }
   };
 
   fbReq(opts, (err, resp, data) => {
