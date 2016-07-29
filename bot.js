@@ -66,7 +66,7 @@ const actions = {
  });
  },
  ['Send-Options'](sessionId, context, cb) {
-	      FB.fbSendButtons(context._fbid_, message, (err, data) => {
+	      FB.fbSendButtons(context._fbid_, "What are you looking for?", (err, data) => {
         if (err) {
           console.log(
             'Oops! An error occurred while forwarding the response to',
