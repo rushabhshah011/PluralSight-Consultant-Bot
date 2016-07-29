@@ -57,6 +57,28 @@ app.get('/webhook', (req, res) => {
 
 app.post('/webhook', (req, res) => {
   const messaging = FB.getFirstMessagingEntry(req.body);
+  if(messaging.postback)
+  {
+	const sender = messaging.sender.id;
+    const sessionId = findOrCreateSession(sender);
+    const msg = messaging.postback.payload;
+	      wit.runActions(
+        sessionId, 
+        msg,  
+        sessions[sessionId].context, 
+        (error, context) => {
+          if (error) {
+            console.log('Oops! Got an error from Wit:', error);
+          } else {
+            console.log('Waiting for futher messages.');
+            // if (context['done']) {
+            //   delete sessions[sessionId];
+            // }
+            sessions[sessionId].context = context;
+          }
+        }
+      );  
+  }
   if (messaging && messaging.message) {
     const sender = messaging.sender.id;
     const sessionId = findOrCreateSession(sender);

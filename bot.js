@@ -66,7 +66,6 @@ const actions = {
  });
  },
  ['Send-Options'](sessionId, context, cb) {
-	 console.log(context._fbid_);
 	  const recipientId = context._fbid_;
  FB.fbSendButtons(recipientId,"What are you looking for?", (err, data) => {
         if (err) {
