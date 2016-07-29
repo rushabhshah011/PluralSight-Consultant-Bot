@@ -65,6 +65,7 @@ const fbSendButtons = (recipientId, msg, cb) => {
       }
     }
   }
+  }
   };
 
   fbReq(opts, (err, resp, data) => {
