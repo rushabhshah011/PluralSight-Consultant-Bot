@@ -49,7 +49,7 @@ const fbSendButtons = (recipientId, msg, cb) => {
       "type":"template",
       "payload":{
         "template_type":"button",
-        "text":"What do you want to do next?",
+        "text":msg,
         "buttons":[
           {
             "type":"web_url",

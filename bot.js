@@ -76,13 +76,12 @@ const actions = {
             ':',
             err
           );
-		cb();
         }
 
-        cb(context);
-      });
-		cb(context);	     
- },
+     });
+		cb();
+
+	 },
 
 };
 
