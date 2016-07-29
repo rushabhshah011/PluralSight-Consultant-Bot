@@ -52,14 +52,19 @@ const fbSendButtons = (recipientId, msg, cb) => {
         "text":msg,
         "buttons":[
           {
-            "type":"web_url",
-            "url":"https://petersapparel.parseapp.com",
-            "title":"Show Website"
-          },
-          {
             "type":"postback",
-            "title":"Start Chatting",
-            "payload":"USER_DEFINED_PAYLOAD"
+            "title":"Newest Courses",
+            "payload":"courses"
+          },
+		  {
+            "type":"postback",
+            "title":"Learning Path",
+            "payload":"path"
+          },
+		  {
+            "type":"postback",
+            "title":"Live Mentoring",
+            "payload":"mentor"
           }
         ]
       }
