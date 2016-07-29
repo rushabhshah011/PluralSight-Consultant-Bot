@@ -65,9 +65,6 @@ const actions = {
    cb();
  });
  },
-  error(sessionId, context, error) {
-    console.log(error.message);
-  }, 
 };
 
 
