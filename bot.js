@@ -3,6 +3,7 @@
 const Wit = require('node-wit').Wit;
 const FB = require('./facebook.js');
 const Config = require('./const.js');
+const https = require('https');
 
 const firstEntityValue = (entities, entity) => {
   const val = entities && entities[entity] &&
