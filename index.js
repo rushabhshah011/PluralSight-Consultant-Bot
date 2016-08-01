@@ -61,10 +61,10 @@ app.post('/webhook', (req, res) => {
   {
 	//const msg = messaging.postback.payload;  
   }
-    if(messaging.message.quick_reply)
-  {
+//    if(messaging.message.quick_reply)
+//  {
 	// messaging.message.quick_reply.payload
-  }
+//  }
   if (messaging && messaging.message) {
     const sender = messaging.sender.id;
     const sessionId = findOrCreateSession(sender);
