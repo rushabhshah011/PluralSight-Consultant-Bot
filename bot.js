@@ -78,7 +78,7 @@ const actions = {
         }
 
      });
-		cb();
+		cb(context);
 
 	 },
 
