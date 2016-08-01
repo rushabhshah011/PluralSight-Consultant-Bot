@@ -79,14 +79,8 @@ app.post('/webhook', (req, res) => {
         'Sorry I can only process text messages for now.'
       );
     } else if (msg) {
-		if(messaging.quick_reply){
-			console.log(messaging.quick_reply);
-			      FB.fbMessage(
-        sender,
-        'messaging.quick_reply.payload'
-      );
-		}
-		else{
+			console.log(msg);
+			console.log(messaging);
 			wit.runActions(
 			sessionId, 
 			msg,  
@@ -103,8 +97,6 @@ app.post('/webhook', (req, res) => {
           }
         }
       );
-		}
-
     }
   }
   res.sendStatus(200);
