@@ -98,7 +98,7 @@ const fbQuickreply = (recipientId, msg,opt, cb) => {
       {
         "content_type":"text",
         "title":"No",
-        "payload":"nope"
+        "payload":"n"+opt
       }
     ]
   }
