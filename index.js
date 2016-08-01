@@ -79,9 +79,9 @@ app.post('/webhook', (req, res) => {
         'Sorry I can only process text messages for now.'
       );
     } else if (msg) {
-		console.log(msg);
+		console.log(messaging);
 		if(msg.quick_reply){
-			console.log(msg);
+			console.log(messaging);
 			
 		}
 		else{
