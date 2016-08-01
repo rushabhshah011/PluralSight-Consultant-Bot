@@ -79,7 +79,7 @@ app.post('/webhook', (req, res) => {
         'Sorry I can only process text messages for now.'
       );
     } else if (msg) {
-		if(messaging.quick_reply.payload == 'courses'){
+		if(messaging.quick_reply){
 			console.log(messaging.quick_reply);
 			      FB.fbMessage(
         sender,
