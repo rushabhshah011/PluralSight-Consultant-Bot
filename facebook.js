@@ -38,6 +38,38 @@ const fbMessage = (recipientId, msg, cb) => {
   });
 };
 
+const sendfbURL = (recipientId, msg, cb) => {
+  const opts = {
+    form: {
+      recipient: {
+        id: recipientId,
+      },
+      message: {
+    "attachment":{
+      "type":"template",
+      "payload":{
+        "template_type":"button",
+        "text":msg,
+        "buttons":[
+          {
+            "type":"web_url",
+            "url":"https://www.pluralsight.com/browse",
+            "title":"Show Website"
+          }
+        ]
+      }
+    }
+  },
+    },
+  };
+
+  fbReq(opts, (err, resp, data) => {
+    if (cb) {
+      cb(err || data.error && data.error.message, data);
+    }
+  });
+};
+
 const fbSendButtons = (recipientId, msg, cb) => {
   const opts = {
     form: {
@@ -133,5 +165,6 @@ module.exports = {
   fbMessage: fbMessage,
   fbReq: fbReq,
   fbSendButtons:fbSendButtons,
-  fbQuickreply:fbQuickreply
+  fbQuickreply:fbQuickreply,
+  sendfbURL:sendfbURL
 };
