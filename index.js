@@ -84,7 +84,7 @@ app.post('/webhook', (req, res) => {
 				console.log(messaging.message.quick_reply);
 				if(messaging.message.quick_reply.payload == 'ncourses')
 				{
-					FB.sendfbURL(sender,"You can browse "+messaging.message.quick_reply.payload.slice(1);+" here.");
+					FB.sendfbURL(sender,"You can browse "+messaging.message.quick_reply.payload+" here.");
 				}
 			}
 			else{
