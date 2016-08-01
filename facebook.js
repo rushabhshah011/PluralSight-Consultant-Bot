@@ -113,7 +113,7 @@ const fbSendButtons = (recipientId, msg, cb) => {
 };
 
 
-const fbQuickreply = (recipientId, msg,opt, cb) => {
+const fbQuickreply = (recipientId, msg,opt,t1,t2 cb) => {
   const opts = {
     form: {
       recipient: {
@@ -124,12 +124,12 @@ const fbQuickreply = (recipientId, msg,opt, cb) => {
     "quick_replies":[
       {
         "content_type":"text",
-        "title":"Yes",
+        "title":t1,
         "payload":opt
       },
       {
         "content_type":"text",
-        "title":"No",
+        "title":t2,
         "payload":"n"+opt
       }
     ]

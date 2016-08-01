@@ -61,7 +61,7 @@ app.post('/webhook', (req, res) => {
   {
 	const msg = messaging.postback.payload;  
 	const sender = messaging.sender.id;
-	FB.fbQuickreply(sender,"I will need to ask you few question. Will you please answer them?",msg);
+	FB.fbQuickreply(sender,"I will need to ask you few question. Will you please answer them?",msg,"Yes","No");
 	console.log(messaging);
   }
 //    if(messaging.message.quick_reply)
@@ -85,6 +85,9 @@ app.post('/webhook', (req, res) => {
 				if(messaging.message.quick_reply.payload == 'ncourses')
 				{
 					FB.sendfbURL(sender,"You can browse "+messaging.message.quick_reply.payload+" here.");
+				}
+				if(messaging.message.quick_reply.payload == 'courses'){
+					FB.fbQuickreply(sender,"Are you looking for you self?",msg,"Business","Individual");
 				}
 			}
 			else{
