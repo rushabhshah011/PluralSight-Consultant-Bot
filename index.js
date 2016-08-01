@@ -81,6 +81,9 @@ app.post('/webhook', (req, res) => {
     } else if (msg) {
 			console.log(msg);
 			console.log(messaging);
+			if(messaging.quick_reply){
+				console.log(messaging.quick_reply);
+			}
 			wit.runActions(
 			sessionId, 
 			msg,  
