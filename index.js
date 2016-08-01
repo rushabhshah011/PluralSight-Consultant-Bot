@@ -87,7 +87,13 @@ app.post('/webhook', (req, res) => {
 					FB.sendfbURL(sender,"You can browse "+messaging.message.quick_reply.payload+" here.");
 				}
 				if(messaging.message.quick_reply.payload == 'courses'){
-					FB.fbQuickreply(sender,"Are you looking for you self?",msg,"Business","Individual");
+					FB.fbQuickreply(sender,"Are you looking for you self?","indi"+msg,"Business","Individual");
+				}
+				if(messaging.message.quick_reply.payload == 'indicourses'){
+					      FB.fbMessage(
+        sender,
+        'What do you do?'
+      );
 				}
 			}
 			else{
