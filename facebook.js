@@ -81,6 +81,38 @@ const fbSendButtons = (recipientId, msg, cb) => {
 };
 
 
+const fbQuickreply = (recipientId, msg,opt, cb) => {
+  const opts = {
+    form: {
+      recipient: {
+        id: recipientId,
+      },
+      message: {
+    "text": msg,
+    "quick_replies":[
+      {
+        "content_type":"text",
+        "title":"Yes",
+        "payload":opt
+      },
+      {
+        "content_type":"text",
+        "title":"No",
+        "payload":"nope"
+      }
+    ]
+  }
+  }
+  };
+
+  fbReq(opts, (err, resp, data) => {
+    if (cb) {
+      cb(err || data.error && data.error.message, data);
+    }
+  });
+};
+
+
 const getFirstMessagingEntry = (body) => {
   const val = body.object === 'page' &&
     body.entry &&
@@ -100,5 +132,6 @@ module.exports = {
   getFirstMessagingEntry: getFirstMessagingEntry,
   fbMessage: fbMessage,
   fbReq: fbReq,
-  fbSendButtons:fbSendButtons
+  fbSendButtons:fbSendButtons,
+  fbQuickreply:fbQuickreply
 };

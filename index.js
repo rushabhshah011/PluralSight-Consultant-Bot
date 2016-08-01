@@ -60,6 +60,7 @@ app.post('/webhook', (req, res) => {
   if(messaging.postback)
   {
 	//const msg = messaging.postback.payload;  
+	console.log(messaging);
   }
 //    if(messaging.message.quick_reply)
 //  {
