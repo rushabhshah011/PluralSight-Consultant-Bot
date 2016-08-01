@@ -79,15 +79,20 @@ app.post('/webhook', (req, res) => {
         'Sorry I can only process text messages for now.'
       );
     } else if (msg) {
-      wit.runActions(
-        sessionId, 
-        msg,  
-        sessions[sessionId].context, 
-        (error, context) => {
-          if (error) {
-            console.log('Oops! Got an error from Wit:', error);
-          } else {
-            console.log('Waiting for futher messages.');
+		if(msg.quick_reply){
+			console.log(msg);
+			
+		}
+		else{
+			wit.runActions(
+			sessionId, 
+			msg,  
+			sessions[sessionId].context, 
+			(error, context) => {
+			if (error) {
+				console.log('Oops! Got an error from Wit:', error);
+			} else {
+				console.log('Waiting for futher messages.');
             // if (context['done']) {
             //   delete sessions[sessionId];
             // }
@@ -95,6 +100,8 @@ app.post('/webhook', (req, res) => {
           }
         }
       );
+		}
+
     }
   }
   res.sendStatus(200);
