@@ -85,7 +85,8 @@ app.post('/webhook', (req, res) => {
 				console.log("okay we are here");
 				console.log(messaging.message.quick_reply);
 			}
-			wit.runActions(
+			else{
+							wit.runActions(
 			sessionId, 
 			msg,  
 			sessions[sessionId].context, 
@@ -101,6 +102,7 @@ app.post('/webhook', (req, res) => {
           }
         }
       );
+			}
     }
   }
   res.sendStatus(200);
