@@ -113,7 +113,7 @@ const fbSendButtons = (recipientId, msg, cb) => {
 };
 
 
-const fbQuickreply = (recipientId, msg,opt,t1,t2 cb) => {
+const fbQuickreply = (recipientId, msg,opt,t1,t2, cb) => {
   const opts = {
     form: {
       recipient: {
