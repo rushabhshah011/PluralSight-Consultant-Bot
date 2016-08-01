@@ -82,6 +82,7 @@ app.post('/webhook', (req, res) => {
 			console.log(msg);
 			console.log(messaging);
 			if(messaging.quick_reply){
+				console.log("okay we are here");
 				console.log(messaging.quick_reply);
 			}
 			wit.runActions(
