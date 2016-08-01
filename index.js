@@ -59,7 +59,9 @@ app.post('/webhook', (req, res) => {
   const messaging = FB.getFirstMessagingEntry(req.body);
   if(messaging.postback)
   {
-	//const msg = messaging.postback.payload;  
+	const msg = messaging.postback.payload;  
+	const sender = messaging.sender.id;
+	FB.fbQuickreply(sender,"I will need to ask you few question. Will you please answer them?",msg);
 	console.log(messaging);
   }
 //    if(messaging.message.quick_reply)
