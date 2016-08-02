@@ -81,6 +81,13 @@ const actions = {
 		cb(context);
 
 	 },
+ ['fetch-pro'](sessionId, context, cb) {
+   
+	context.pro = firstEntityValue(entities, 'profession');
+
+		cb(context);
+
+	 },
 
 };
 
