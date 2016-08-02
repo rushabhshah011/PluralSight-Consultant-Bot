@@ -83,6 +83,7 @@ const actions = {
 	 },
  ['fetch-pro'](sessionId, context, entities, cb) {
     const movie_title = firstEntityValue(entities, 'profession');
+    console.log(movie_title);
 	context.pro = movie_title;
 
 		cb(context);
