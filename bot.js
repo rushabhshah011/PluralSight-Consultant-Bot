@@ -83,7 +83,7 @@ const actions = {
 	 },
  ['fetch-pro'](sessionId, context, cb) {
    
-	context.pro = firstEntityValue(entities, 'profession');
+	context.pro = firstEntityValue['profession'];
 
 		cb(context);
 
