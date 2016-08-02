@@ -45,7 +45,13 @@ const actions = {
       cb();
     }
   },
-    merge(sessionId, context, entities, message, cb) {
+  merge(sessionId, context, entities, message, cb) {
+    // Retrieve the location entity and store it into a context field
+    const loc = firstEntityValue(entities, 'profession');
+    if (loc) {
+      context.pro = loc; // store it in context
+    }
+
     cb(context);
   },
  error(sessionId, context, error) {
