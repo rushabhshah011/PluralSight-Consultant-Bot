@@ -106,10 +106,10 @@ app.post('/webhook', (req, res) => {
 				console.log('Oops! Got an error from Wit:', error);
 			} else {
 				console.log('Waiting for futher messages.');
-             if (msg == 'done') {
-               delete sessions[sessionId];
-             }
-			sessions[sessionId].context = context;
+            // if (context['done']) {
+            //   delete sessions[sessionId];
+            // }
+            sessions[sessionId].context = context;
           }
         }
       );
