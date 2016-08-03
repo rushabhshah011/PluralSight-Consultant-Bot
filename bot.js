@@ -55,7 +55,7 @@ if(sub == null && pro == null){
 	context.missingSubPro = true ;
 }
 if(sub != null && pro == null){
-	context.missingPro = true ;
+	context.missingPro = sub ;
 }
 if(sub == null && pro != null){
 	context.missingSub = true ;
