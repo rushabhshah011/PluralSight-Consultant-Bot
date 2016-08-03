@@ -38,7 +38,7 @@ const fbMessage = (recipientId, msg, cb) => {
   });
 };
 
-const sendfbURL = (recipientId, msg, cb) => {
+const sendfbURL = (recipientId, msg,url, cb) => {
   const opts = {
     form: {
       recipient: {
@@ -53,7 +53,7 @@ const sendfbURL = (recipientId, msg, cb) => {
         "buttons":[
           {
             "type":"web_url",
-            "url":"https://www.pluralsight.com/browse",
+            "url":url,
             "title":"Show Website"
           }
         ]
@@ -86,17 +86,17 @@ const fbSendButtons = (recipientId, msg, cb) => {
           {
             "type":"postback",
             "title":"Newest Courses",
-            "payload":"courses"
+            "payload":"Courses"
           },
 		  {
             "type":"postback",
             "title":"Learning Path",
-            "payload":"paths"
+            "payload":"Paths"
           },
 		  {
             "type":"postback",
             "title":"Live Mentoring",
-            "payload":"mentors"
+            "payload":"Mentors"
           }
         ]
       }

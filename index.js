@@ -80,9 +80,20 @@ app.post('/webhook', (req, res) => {
       );
     } else if (msg) {
 			if(messaging.message.quick_reply){
-				if(messaging.message.quick_reply.payload == 'ncourses' || messaging.message.quick_reply.payload == 'npaths' || messaging.message.quick_reply.payload == 'nmentors')
+				if(messaging.message.quick_reply.payload == 'nCourses')
 				{
-					FB.sendfbURL(sender,"You can browse "+messaging.message.quick_reply.payload.slice(1)+" here.");
+					var url = "https://www.pluralsight.com/browse";
+					FB.sendfbURL(sender,"You can browse "+messaging.message.quick_reply.payload.slice(1)+" here.",url);
+				}
+				if(messaging.message.quick_reply.payload == 'nPaths')
+				{
+					var url = "https://www.pluralsight.com/resource-center/playlists";
+					FB.sendfbURL(sender,"You can browse Learning "+messaging.message.quick_reply.payload.slice(1)+" here.",url);
+				}
+				if(messaging.message.quick_reply.payload == 'nMentors')
+				{
+					var url = "https://www.pluralsight.com/product/mentoring";
+					FB.sendfbURL(sender,"You can look for Live "+messaging.message.quick_reply.payload.slice(1)+" here.",url);
 				}
 				if(messaging.message.quick_reply.payload == 'courses'){
 					FB.fbQuickreply(sender,"Are you looking for you self?","indi"+msg,"Business","Individual");
