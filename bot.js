@@ -50,12 +50,12 @@ const actions = {
     const pro = firstEntityValue(entities, 'profession');
 	const sub = firstEntityValue(entities, 'subject');
 
-    if (sub && pub) {
+    if (sub && pro) {
      	context.pro = pro;
 	context.sub = sub;
     }
 	else if(!sub){
-		context.missingPub = sub ;
+		context.missingPro = sub ;
 	}
 	else{
 		context.missingSub = true ;
