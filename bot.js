@@ -51,13 +51,19 @@ const actions = {
 	const sub = firstEntityValue(entities, 'subject');
 console.log("profession"+pro);
 console.log("Subject"+sub);	
-    if (sub && pro) {
+if(sub == null && pro == null){
+	context.missingSubPro = true ;
+}
+if(sub != null && pro == null){
+	context.missingPro = true ;
+}
+if(sub == null && pro != null){
+	context.missingSub = true ;
+}
+if (sub != null && pro != null) {
   	context.pro = pro;
 	context.sub = sub;
-    }
-	else{
-		context.missingSub = true ;
-	}
+}
 
     cb(context);
   },
