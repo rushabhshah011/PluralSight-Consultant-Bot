@@ -91,12 +91,12 @@ const fbSendButtons = (recipientId, msg, cb) => {
 		  {
             "type":"postback",
             "title":"Learning Path",
-            "payload":"path"
+            "payload":"paths"
           },
 		  {
             "type":"postback",
             "title":"Live Mentoring",
-            "payload":"mentor"
+            "payload":"mentors"
           }
         ]
       }

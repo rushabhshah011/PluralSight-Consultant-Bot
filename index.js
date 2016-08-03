@@ -80,11 +80,9 @@ app.post('/webhook', (req, res) => {
       );
     } else if (msg) {
 			if(messaging.message.quick_reply){
-				console.log("okay we are here");
-				console.log(messaging.message.quick_reply);
-				if(messaging.message.quick_reply.payload == 'ncourses')
+				if(messaging.message.quick_reply.payload == 'ncourses' || messaging.message.quick_reply.payload == 'npaths' || messaging.message.quick_reply.payload == 'nmentors')
 				{
-					FB.sendfbURL(sender,"You can browse "+messaging.message.quick_reply.payload+" here.");
+					FB.sendfbURL(sender,"You can browse "+messaging.message.quick_reply.payload.slice(1)+" here.");
 				}
 				if(messaging.message.quick_reply.payload == 'courses'){
 					FB.fbQuickreply(sender,"Are you looking for you self?","indi"+msg,"Business","Individual");
