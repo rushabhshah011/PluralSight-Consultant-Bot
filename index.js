@@ -82,7 +82,7 @@ app.post('/webhook', (req, res) => {
 		     if (msg == 'done') {
                delete sessions[sessionId];
              }
-			if(messaging.message.quick_reply){
+			else if(messaging.message.quick_reply){
 				console.log("okay we are here");
 				console.log(messaging.message.quick_reply);
 				if(messaging.message.quick_reply.payload == 'ncourses')
