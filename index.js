@@ -90,7 +90,9 @@ app.post('/webhook', (req, res) => {
 					FB.fbQuickreply(sender,"Are you looking for you self?","indi"+msg,"Business","Individual");
 				}
 				if(messaging.message.quick_reply.payload == 'indiYes' || messaging.message.quick_reply.payload == 'nindiYes'){
-					      FB.fbMessage(
+
+	   sessions[sessionId].context.selectedOpt = "courses";
+	   					      FB.fbMessage(
         sender,
         'What is your profession?'
       );
