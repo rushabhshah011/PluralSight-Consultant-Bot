@@ -100,21 +100,6 @@ if (sub != null && pro != null) {
 		cb(context);
 
 	 },
-   ['fetch-data'](sessionId, context, cb) {
-	https.get('https://sp10050dad.guided.ss-omtrdc.net/?callback=jQuery111009308100848311767_1470245204573&page=1&m_Sort=&q=*&x10=categories&q10=course&x11=roles&q11=software-development%7C&x12=subjects&q12=android&m_Count=25&_=1470245204574', (res) => {
- 	res.on('data', function (chunk) {
-     console.log(chunk);
- 		res_body = JSON.parse(chunk);
-     console.log(res_body);
-		cb(context);
- 	});
- }).on('error', (e) => {
-   console.log(`Got error: ${e.message}`);
-    //   const loc = firstEntityValue(entities, 'location');
-
-   cb();
- });
- },
 
 };
 
