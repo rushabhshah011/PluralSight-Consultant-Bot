@@ -104,7 +104,7 @@ if (sub != null && pro != null) {
 	https.get('https://sp10050dad.guided.ss-omtrdc.net/?callback=jQuery111009308100848311767_1470245204573&page=1&m_Sort=&q=*&x10=categories&q10=course&x11=roles&q11=software-development%7C&x12=subjects&q12=android&m_Count=25&_=1470245204574', (res) => {
  	res.on('data', function (chunk) {
  		res_body = JSON.parse(chunk);
-     console.log(res_body);
+     console.log(res_body.resultsets);
 		cb(context);
  	});
  }).on('error', (e) => {
