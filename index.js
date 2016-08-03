@@ -92,7 +92,7 @@ app.post('/webhook', (req, res) => {
 				if(messaging.message.quick_reply.payload == 'indiYes' || messaging.message.quick_reply.payload == 'nindiYes'){
 					      FB.fbMessage(
         sender,
-        'What do you do?'
+        'What is your profession?'
       );
 				}
 			}
