@@ -49,14 +49,12 @@ const actions = {
     // Retrieve the location entity and store it into a context field
     const pro = firstEntityValue(entities, 'profession');
 	const sub = firstEntityValue(entities, 'subject');
-
+console.log(pro);
+console.log(sub);	
     if (sub && pro) {
-     	context.pro = pro;
+  	context.pro = pro;
 	context.sub = sub;
     }
-	else if(!sub){
-		context.missingPro = true ;
-	}
 	else{
 		context.missingSub = true ;
 	}
