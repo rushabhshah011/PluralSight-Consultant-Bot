@@ -55,7 +55,7 @@ const actions = {
 	context.sub = sub;
     }
 	else if(!sub){
-		context.missingPro = sub ;
+		context.missingPro = true ;
 	}
 	else{
 		context.missingSub = true ;
