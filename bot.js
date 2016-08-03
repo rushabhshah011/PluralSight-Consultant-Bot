@@ -49,8 +49,8 @@ const actions = {
     // Retrieve the location entity and store it into a context field
     const pro = firstEntityValue(entities, 'profession');
 	const sub = firstEntityValue(entities, 'subject');
-console.log(pro);
-console.log(sub);	
+console.log("profession"+pro);
+console.log("Subject"+sub);	
     if (sub && pro) {
   	context.pro = pro;
 	context.sub = sub;
