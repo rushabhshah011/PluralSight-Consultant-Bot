@@ -47,9 +47,12 @@ const actions = {
   },
   merge(sessionId, context, entities, message, cb) {
     // Retrieve the location entity and store it into a context field
-    const loc = firstEntityValue(entities, 'profession');
-    if (loc) {
-      context.pro = loc; // store it in context
+    const pro = firstEntityValue(entities, 'profession');
+	const sub = firstEntityValue(entities, 'subject');
+
+    if (sub) {
+     	context.pro = pro;
+	context.sub = sub;
     }
 
     cb(context);
@@ -92,7 +95,6 @@ const actions = {
 	const sub = firstEntityValue(entities, 'subject');
 	context.pro = pro;
 	context.sub = sub;
-	cossole.log(context);
 
 		cb(context);
 
