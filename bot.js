@@ -54,6 +54,9 @@ const actions = {
      	context.pro = pro;
 	context.sub = sub;
     }
+	else{
+		context.missingSub = true ;
+	}
 
     cb(context);
   },
