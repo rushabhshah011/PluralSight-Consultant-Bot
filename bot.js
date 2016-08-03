@@ -92,6 +92,7 @@ const actions = {
 	const sub = firstEntityValue(entities, 'subject');
 	context.pro = pro;
 	context.sub = sub;
+	cossole.log(context);
 
 		cb(context);
 
