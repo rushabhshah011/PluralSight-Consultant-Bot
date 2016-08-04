@@ -102,8 +102,16 @@ if (sub != null && pro != null) {
 	 },
  ['Send-finalOptions'](sessionId, context, cb) {
 	  const recipientId = context._fbid_;
-	  var sub = "Java";
-
+	  console.log(context.missingPro);
+	  console.log(context.sub);
+	  var sub = "";
+	  if(context.sub == null)
+	  {
+		 sub =  context.missingPro;
+	  }
+	  else{
+		sub = context.sub;
+	  }
  FB.fbgenericButton(recipientId,sub,context.selectedOpt, (err, data) => {
         if (err) {
           console.log(
