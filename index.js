@@ -69,6 +69,9 @@ app.post('/webhook', (req, res) => {
     const sessionId = findOrCreateSession(sender);
     const msg = messaging.message.text;
     const atts = messaging.message.attachments;
+	if (msg == "done") {
+        delete sessions[sessionId];
+    }
     if (atts) {
       FB.fbMessage(
         sender,
