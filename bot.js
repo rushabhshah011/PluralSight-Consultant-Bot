@@ -102,8 +102,8 @@ if (sub != null && pro != null) {
 	 },
  ['Send-finalOptions'](sessionId, context, cb) {
 	  const recipientId = context._fbid_;
-	  console.log(context.missingPro);
-	  console.log(context.sub);
+	  console.log("missingPro"+context.missingPro);
+	  console.log("context"+context.sub);
 	  var sub = "";
 	  if(context.sub == null)
 	  {
