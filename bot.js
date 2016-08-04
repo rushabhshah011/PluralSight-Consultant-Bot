@@ -102,7 +102,15 @@ if (sub != null && pro != null) {
 	 },
  ['Send-finalOptions'](sessionId, context, cb) {
 	  const recipientId = context._fbid_;
- FB.fbgenericButton(recipientId,context.sub,context.selectedOpt, (err, data) => {
+	  var sub = "";
+	  if(context.sub == null)
+	  {
+		 sub =  context.missingPro;
+	  }
+	  else{
+		  sub = context.sub;
+	  }
+ FB.fbgenericButton(recipientId,sub,context.selectedOpt, (err, data) => {
         if (err) {
           console.log(
             'Oops! An error occurred while forwarding the response to',
