@@ -144,7 +144,7 @@ const fbQuickreply = (recipientId, msg,opt,t1,t2, cb) => {
   });
 };
 
-const fbgenericButton = (recipientId,sub cb) => {
+const fbgenericButton = (recipientId,sub, cb) => {
   const opts = {
     form: {
       recipient: {
