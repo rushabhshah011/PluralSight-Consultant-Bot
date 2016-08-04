@@ -103,12 +103,12 @@ if (sub != null && pro != null) {
  ['Send-finalOptions'](sessionId, context, cb) {
 	  const recipientId = context._fbid_;
 	  var sub = "";
-	  if(context.sub == null)
+	  if(!context.sub)
 	  {
 		 sub =  context.missingPro;
 	  }
 	  else{
-		  sub = context.sub;
+		sub = context.sub;
 	  }
  FB.fbgenericButton(recipientId,sub,context.selectedOpt, (err, data) => {
         if (err) {
