@@ -91,8 +91,13 @@ app.post('/webhook', (req, res) => {
 					var url = "https://www.pluralsight.com/product/mentoring";
 					FB.sendfbURL(sender,"You can look for Live "+messaging.message.quick_reply.payload.slice(1)+" here.",url);
 				}
+<<<<<<< HEAD
 				if(messaging.message.quick_reply.payload == 'Courses' || messaging.message.quick_reply.payload == 'Paths' || messaging.message.quick_reply.payload == 'Mentors'){
 					FB.fbQuickreply(sender,"Are you looking for you self?",messaging.message.quick_reply.payload.toLowerCase(),"Business","Individual");
+=======
+				if(messaging.message.quick_reply.payload == 'Courses'){
+					FB.fbQuickreply(sender,"Are you looking for you self?","indi"+msg,"Business","Individual");
+>>>>>>> 98b1b7b38b410c48f52361e14ba9dfda77798ed6
 				}
 				if(messaging.message.quick_reply.payload == 'ncourses' || messaging.message.quick_reply.payload == 'npaths' || messaging.message.quick_reply.payload == 'nmentors')
 				{

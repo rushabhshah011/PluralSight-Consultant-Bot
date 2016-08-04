@@ -100,6 +100,7 @@ if (sub != null && pro != null) {
 		cb(context);
 
 	 },
+<<<<<<< HEAD
  ['Send-finalOptions'](sessionId, context, cb) {
 	  const recipientId = context._fbid_;
  FB.fbgenericButton(recipientId, (err, data) => {
@@ -116,6 +117,8 @@ if (sub != null && pro != null) {
 		cb(context);
 
 	 },
+=======
+>>>>>>> 98b1b7b38b410c48f52361e14ba9dfda77798ed6
 
 };
 
