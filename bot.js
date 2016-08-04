@@ -104,14 +104,7 @@ if (sub != null && pro != null) {
 	  const recipientId = context._fbid_;
 	  console.log("missingPro"+context.missingPro);
 	  console.log("context"+context.sub);
-	  var sub = "";
-	  if(context.sub == null)
-	  {
-		 sub =  context.missingPro;
-	  }
-	  else{
-		sub = context.sub;
-	  }
+		var	sub = firstEntityValue(entities, 'subject');
  FB.fbgenericButton(recipientId,sub,context.selectedOpt, (err, data) => {
         if (err) {
           console.log(
