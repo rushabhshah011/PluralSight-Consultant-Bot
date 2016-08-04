@@ -69,16 +69,12 @@ app.post('/webhook', (req, res) => {
     const sessionId = findOrCreateSession(sender);
     const msg = messaging.message.text;
     const atts = messaging.message.attachments;
-	if (msg == "done") {
-        delete sessions[sessionId];
-    }
     if (atts) {
       FB.fbMessage(
         sender,
         'Sorry I can only process text messages for now.'
       );
     } else if (msg) {
-		console.log(msg);
 			if(messaging.message.quick_reply){
 				if(messaging.message.quick_reply.payload == 'nCourses')
 				{
@@ -119,6 +115,9 @@ app.post('/webhook', (req, res) => {
 				console.log('Oops! Got an error from Wit:', error);
 			} else {
 				console.log('Waiting for futher messages.');
+            // if (context['done']) {
+            //   delete sessions[sessionId];
+            // }
             sessions[sessionId].context = context;
           }
         }
