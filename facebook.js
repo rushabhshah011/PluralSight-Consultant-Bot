@@ -144,7 +144,7 @@ const fbQuickreply = (recipientId, msg,opt,t1,t2, cb) => {
   });
 };
 
-const fbgenericButton = (recipientId,sub, cb) => {
+const fbgenericButton = (recipientId,sub,selectedOpt, cb) => {
   const opts = {
     form: {
       recipient: {
@@ -157,7 +157,7 @@ const fbgenericButton = (recipientId,sub, cb) => {
         "template_type":"generic",
         "elements":[
           {
-            "title":sub+" Course 1",
+            "title":sub+" "+selectedOpt+" 1",
             "image_url":"https://lh3.googleusercontent.com/-ZORtyZGwP8c/AAAAAAAAAAI/AAAAAAAAHjg/Hu-5E_mJYNs/s0-c-k-no-ns/photo.jpg",
             "subtitle":"Author Name 1",
             "buttons":[
@@ -179,8 +179,8 @@ const fbgenericButton = (recipientId,sub, cb) => {
             ]
           },
 		  {
-            "title":sub+" Course 2",
-            "image_url":"http://petersapparel.parseapp.com/img/item100-thumb.png",
+            "title":sub+" "+selectedOpt+" 2",
+            "image_url":"https://lh3.googleusercontent.com/-ZORtyZGwP8c/AAAAAAAAAAI/AAAAAAAAHjg/Hu-5E_mJYNs/s0-c-k-no-ns/photo.jpg",
             "subtitle":"Author Name 2",
             "buttons":[
 			  {
@@ -201,8 +201,8 @@ const fbgenericButton = (recipientId,sub, cb) => {
             ]
           },
 		  {
-            "title":sub+" Course 3",
-            "image_url":"http://petersapparel.parseapp.com/img/item100-thumb.png",
+            "title":sub+" "+selectedOpt+" 3",
+            "image_url":"https://lh3.googleusercontent.com/-ZORtyZGwP8c/AAAAAAAAAAI/AAAAAAAAHjg/Hu-5E_mJYNs/s0-c-k-no-ns/photo.jpg",
             "subtitle":"Author Name 3",
             "buttons":[
 			  {
