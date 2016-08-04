@@ -64,10 +64,6 @@ app.post('/webhook', (req, res) => {
 	FB.fbQuickreply(sender,"I will need to ask you few question. Will you please answer them?",msg,"Yes","No");
 	console.log(messaging);
   }
-//    if(messaging.message.quick_reply)
-//  {
-	// messaging.message.quick_reply.payload
-//  }
   if (messaging && messaging.message) {
     const sender = messaging.sender.id;
     const sessionId = findOrCreateSession(sender);
@@ -95,20 +91,22 @@ app.post('/webhook', (req, res) => {
 					var url = "https://www.pluralsight.com/product/mentoring";
 					FB.sendfbURL(sender,"You can look for Live "+messaging.message.quick_reply.payload.slice(1)+" here.",url);
 				}
-				if(messaging.message.quick_reply.payload == 'courses'){
-					FB.fbQuickreply(sender,"Are you looking for you self?","indi"+msg,"Business","Individual");
+				if(messaging.message.quick_reply.payload == 'Courses' || messaging.message.quick_reply.payload == 'Paths' || messaging.message.quick_reply.payload == 'Mentors'){
+					FB.fbQuickreply(sender,"Are you looking for you self?",messaging.message.quick_reply.payload.toLowerCase(),"Business","Individual");
 				}
-				if(messaging.message.quick_reply.payload == 'indiYes' || messaging.message.quick_reply.payload == 'nindiYes'){
-
-	   sessions[sessionId].context.selectedOpt = "courses";
-	   					      FB.fbMessage(
-        sender,
-        'What is your profession?'
-      );
+				if(messaging.message.quick_reply.payload == 'ncourses' || messaging.message.quick_reply.payload == 'npaths' || messaging.message.quick_reply.payload == 'nmentors')
+				{
+					var url = "https://billing.pluralsight.com/checkout?sku=ENT-PILOT&numUsers=2";
+					FB.sendfbURL(sender,"Sorry, I am programmed to help Individuals only. You can Enquire for FREE PILOT here.",url);
+				}
+				if(messaging.message.quick_reply.payload == 'courses' || messaging.message.quick_reply.payload == 'paths' || messaging.message.quick_reply.payload == 'mentors')
+				{
+				sessions[sessionId].context.selectedOpt = messaging.message.quick_reply.payload;
+	   			FB.fbMessage(sender,'What is your Profession?');
 				}
 			}
 			else{
-							wit.runActions(
+			wit.runActions(
 			sessionId, 
 			msg,  
 			sessions[sessionId].context, 

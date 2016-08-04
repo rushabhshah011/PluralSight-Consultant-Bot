@@ -144,6 +144,98 @@ const fbQuickreply = (recipientId, msg,opt,t1,t2, cb) => {
   });
 };
 
+const fbgenericButton = (recipientId, cb) => {
+  const opts = {
+    form: {
+      recipient: {
+        id: recipientId,
+      },
+      message: {
+    "attachment":{
+      "type":"template",
+      "payload":{
+        "template_type":"generic",
+        "elements":[
+          {
+            "title":"Node.js Course 1",
+            "image_url":"http://petersapparel.parseapp.com/img/item100-thumb.png",
+            "subtitle":"Author Name 1",
+            "buttons":[
+			  {
+                "type":"postback",
+                "title":"2h 18m",
+                "payload":"USER_DEFINED_PAYLOAD"
+              },
+              {
+                "type":"postback",
+                "title":"Intermediate",
+                "payload":"USER_DEFINED_PAYLOAD"
+              },    			  
+              {
+                "type":"web_url",
+                "url":"https://www.pluralsight.com/pricing",
+                "title":"FREE TRIAL"
+              }
+            ]
+          },
+		  {
+            "title":"Node.js Course 2",
+            "image_url":"http://petersapparel.parseapp.com/img/item100-thumb.png",
+            "subtitle":"Author Name 2",
+            "buttons":[
+			  {
+                "type":"postback",
+                "title":"2h 18m",
+                "payload":"USER_DEFINED_PAYLOAD"
+              },
+              {
+                "type":"postback",
+                "title":"Intermediate",
+                "payload":"USER_DEFINED_PAYLOAD"
+              },    			  
+              {
+                "type":"web_url",
+                "url":"https://www.pluralsight.com/pricing",
+                "title":"FREE TRIAL"
+              }
+            ]
+          },
+		  {
+            "title":"Node.js Course 3",
+            "image_url":"http://petersapparel.parseapp.com/img/item100-thumb.png",
+            "subtitle":"Author Name 3",
+            "buttons":[
+			  {
+                "type":"postback",
+                "title":"2h 18m",
+                "payload":"USER_DEFINED_PAYLOAD"
+              },
+              {
+                "type":"postback",
+                "title":"Intermediate",
+                "payload":"USER_DEFINED_PAYLOAD"
+              },    			  
+              {
+                "type":"web_url",
+                "url":"https://www.pluralsight.com/pricing",
+                "title":"FREE TRIAL"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+  }
+  };
+
+  fbReq(opts, (err, resp, data) => {
+    if (cb) {
+      cb(err || data.error && data.error.message, data);
+    }
+  });
+};
+
 
 const getFirstMessagingEntry = (body) => {
   const val = body.object === 'page' &&
@@ -166,5 +258,6 @@ module.exports = {
   fbReq: fbReq,
   fbSendButtons:fbSendButtons,
   fbQuickreply:fbQuickreply,
-  sendfbURL:sendfbURL
+  sendfbURL:sendfbURL,
+  fbgenericButton:fbgenericButton
 };

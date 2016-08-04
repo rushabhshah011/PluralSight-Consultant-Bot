@@ -58,7 +58,7 @@ if(sub != null && pro == null){
 	context.missingPro = sub ;
 }
 if(sub == null && pro != null){
-	context.missingSub = true ;
+	context.missingSub = pro ;
 }
 if (sub != null && pro != null) {
   	context.pro = pro;
@@ -100,12 +100,19 @@ if (sub != null && pro != null) {
 		cb(context);
 
 	 },
- ['fetch-pro'](context, entities, cb) {
-    const pro = firstEntityValue(entities, 'profession');
-	const sub = firstEntityValue(entities, 'subject');
-	context.pro = pro;
-	context.sub = sub;
+ ['Send-finalOptions'](sessionId, context, cb) {
+	  const recipientId = context._fbid_;
+ FB.fbgenericButton(recipientId, (err, data) => {
+        if (err) {
+          console.log(
+            'Oops! An error occurred while forwarding the response to',
+            recipientId,
+            ':',
+            err
+          );
+        }
 
+     });
 		cb(context);
 
 	 },
