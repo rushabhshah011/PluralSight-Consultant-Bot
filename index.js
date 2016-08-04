@@ -79,10 +79,6 @@ app.post('/webhook', (req, res) => {
       );
     } else if (msg) {
 		console.log(msg);
-		     if (msg == "done") {
-				 console.log("yo bro we are here");
-               delete sessions[sessionId];
-             }
 			if(messaging.message.quick_reply){
 				if(messaging.message.quick_reply.payload == 'nCourses')
 				{
