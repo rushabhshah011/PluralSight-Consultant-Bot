@@ -92,7 +92,7 @@ app.post('/webhook', (req, res) => {
 					FB.sendfbURL(sender,"You can look for Live "+messaging.message.quick_reply.payload.slice(1)+" here.",url);
 				}
 				if(messaging.message.quick_reply.payload == 'Courses' || messaging.message.quick_reply.payload == 'Paths' || messaging.message.quick_reply.payload == 'Mentors'){
-					FB.fbQuickreply(sender,"Are you looking for you self?",messaging.message.quick_reply.payload.toLowerCase(),"Business","Individual");
+					FB.fbQuickreply(sender,"Are you looking for you self?",messaging.message.quick_reply.payload.toLowerCase(),"Individual","Business");
 				}
 				if(messaging.message.quick_reply.payload == 'ncourses' || messaging.message.quick_reply.payload == 'npaths' || messaging.message.quick_reply.payload == 'nmentors')
 				{
