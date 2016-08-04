@@ -56,6 +56,7 @@ if(sub == null && pro == null){
 }
 if(sub != null && pro == null){
 	context.missingPro = sub ;
+	context.sub = sub;
 }
 if(sub == null && pro != null){
 	context.missingSub = pro ;
@@ -102,10 +103,7 @@ if (sub != null && pro != null) {
 	 },
  ['Send-finalOptions'](sessionId, context, cb) {
 	  const recipientId = context._fbid_;
-	  console.log("missingPro"+context.missingPro);
-	  console.log("context"+context.sub);
-		var	sub = firstEntityValue(entities, 'subject');
- FB.fbgenericButton(recipientId,sub,context.selectedOpt, (err, data) => {
+ FB.fbgenericButton(recipientId,context.sub,context.selectedOpt, (err, data) => {
         if (err) {
           console.log(
             'Oops! An error occurred while forwarding the response to',
