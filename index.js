@@ -69,7 +69,9 @@ app.post('/webhook', (req, res) => {
     const sessionId = findOrCreateSession(sender);
     const msg = messaging.message.text;
     const atts = messaging.message.attachments;
-    if (atts) {
+	             if (msg == "done") {
+               delete sessions[sessionId];
+             }else if (atts) {
       FB.fbMessage(
         sender,
         'Sorry I can only process text messages for now.'
