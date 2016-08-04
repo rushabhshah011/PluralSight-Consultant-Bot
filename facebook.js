@@ -168,7 +168,7 @@ const fbgenericButton = (recipientId,sub,selectedOpt, cb) => {
               },
               {
                 "type":"postback",
-                "title":"Beginnerseginners",
+                "title":"Beginners",
                 "payload":"USER_DEFINED_PAYLOAD"
               },    			  
               {
