@@ -144,7 +144,7 @@ const fbQuickreply = (recipientId, msg,opt,t1,t2, cb) => {
   });
 };
 
-const fbgenericButton = (recipientId, cb) => {
+const fbgenericButton = (recipientId,sub cb) => {
   const opts = {
     form: {
       recipient: {
@@ -157,8 +157,8 @@ const fbgenericButton = (recipientId, cb) => {
         "template_type":"generic",
         "elements":[
           {
-            "title":"Node.js Course 1",
-            "image_url":"http://petersapparel.parseapp.com/img/item100-thumb.png",
+            "title":sub+" Course 1",
+            "image_url":"https://lh3.googleusercontent.com/-ZORtyZGwP8c/AAAAAAAAAAI/AAAAAAAAHjg/Hu-5E_mJYNs/s0-c-k-no-ns/photo.jpg",
             "subtitle":"Author Name 1",
             "buttons":[
 			  {
@@ -168,7 +168,7 @@ const fbgenericButton = (recipientId, cb) => {
               },
               {
                 "type":"postback",
-                "title":"Intermediate",
+                "title":"Beginnerseginners",
                 "payload":"USER_DEFINED_PAYLOAD"
               },    			  
               {
@@ -179,13 +179,13 @@ const fbgenericButton = (recipientId, cb) => {
             ]
           },
 		  {
-            "title":"Node.js Course 2",
+            "title":sub+" Course 2",
             "image_url":"http://petersapparel.parseapp.com/img/item100-thumb.png",
             "subtitle":"Author Name 2",
             "buttons":[
 			  {
                 "type":"postback",
-                "title":"2h 18m",
+                "title":"4h 20m",
                 "payload":"USER_DEFINED_PAYLOAD"
               },
               {
@@ -201,18 +201,18 @@ const fbgenericButton = (recipientId, cb) => {
             ]
           },
 		  {
-            "title":"Node.js Course 3",
+            "title":sub+" Course 3",
             "image_url":"http://petersapparel.parseapp.com/img/item100-thumb.png",
             "subtitle":"Author Name 3",
             "buttons":[
 			  {
                 "type":"postback",
-                "title":"2h 18m",
+                "title":"10h 50m",
                 "payload":"USER_DEFINED_PAYLOAD"
               },
               {
                 "type":"postback",
-                "title":"Intermediate",
+                "title":"Advanced",
                 "payload":"USER_DEFINED_PAYLOAD"
               },    			  
               {
