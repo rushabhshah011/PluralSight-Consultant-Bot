@@ -78,7 +78,9 @@ app.post('/webhook', (req, res) => {
         'Sorry I can only process text messages for now.'
       );
     } else if (msg) {
+		console.log(msg);
 		     if (msg == "done") {
+				 console.log("yo bro we are here");
                delete sessions[sessionId];
              }
 			if(messaging.message.quick_reply){
