@@ -46,7 +46,7 @@ const actions = {
     }
   },
   merge(sessionId, context, entities, message, cb) {
-    // Retrieve the location entity and store it into a context field
+
     const pro = firstEntityValue(entities, 'profession');
 	const sub = firstEntityValue(entities, 'subject');
 console.log("profession"+pro);
@@ -80,7 +80,7 @@ if (sub != null && pro != null) {
  	});
  }).on('error', (e) => {
    console.log(`Got error: ${e.message}`);
-    //   const loc = firstEntityValue(entities, 'location');
+
 
    cb();
  });
@@ -143,7 +143,7 @@ const getWit = () => {
 
 exports.getWit = getWit;
 
-// http://stackoverflow.com/questions/6398196
+
 if (require.main === module) {
   console.log("Bot testing mode.");
   const client = getWit();

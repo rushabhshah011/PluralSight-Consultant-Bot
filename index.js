@@ -11,7 +11,6 @@ const wit = bot.getWit();
 
 const PORT = process.env.PORT || 8445;
 
-// sessionId -> {fbid: facebookUserId, context: sessionState}
 const sessions = {};
 
 const findOrCreateSession = (fbid) => {
@@ -117,9 +116,6 @@ app.post('/webhook', (req, res) => {
 				console.log('Oops! Got an error from Wit:', error);
 			} else {
 				console.log('Waiting for futher messages.');
-            // if (context['done']) {
-            //   delete sessions[sessionId];
-            // }
             sessions[sessionId].context = context;
           }
         }
