@@ -103,7 +103,20 @@ if (sub != null && pro != null) {
 	 },
  ['Send-finalOptions'](sessionId, context, cb) {
 	  const recipientId = context._fbid_;
- FB.fbgenericButton(recipientId,context.sub,context.selectedOpt, (err, data) => {
+	  if(context.sub == 'undefined')
+	  {      FB.fbMessage(recipientId, "Sorry, We don't have course fo that.", (err, data) => {
+        if (err) {
+          console.log(
+            'Oops! An error occurred while forwarding the response to',
+            recipientId,
+            ':',
+            err
+          );
+        }
+
+        cb();
+      });}
+  else{ FB.fbgenericButton(recipientId,context.sub,context.selectedOpt, (err, data) => {
         if (err) {
           console.log(
             'Oops! An error occurred while forwarding the response to',
@@ -114,7 +127,10 @@ if (sub != null && pro != null) {
         }
 
      });
-		cb(context);
+	 		cb(context);
+
+	 }
+
 
 	 },
 

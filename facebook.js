@@ -161,16 +161,16 @@ const fbgenericButton = (recipientId,sub,selectedOpt, cb) => {
             "image_url":"https://lh3.googleusercontent.com/-ZORtyZGwP8c/AAAAAAAAAAI/AAAAAAAAHjg/Hu-5E_mJYNs/s0-c-k-no-ns/photo.jpg",
             "subtitle":"Author Name 1",
             "buttons":[
-			  {
-                "type":"postback",
-                "title":"2h 18m",
-                "payload":"USER_DEFINED_PAYLOAD"
+              {
+                "type":"web_url",
+                "url":"https://www.pluralsight.com/pricing",
+                "title":"2h 18m"
               },
               {
-                "type":"postback",
-                "title":"Beginners",
-                "payload":"USER_DEFINED_PAYLOAD"
-              },    			  
+                "type":"web_url",
+                "url":"https://www.pluralsight.com/pricing",
+                "title":"Beginners"
+              },			  
               {
                 "type":"web_url",
                 "url":"https://www.pluralsight.com/pricing",
@@ -183,16 +183,16 @@ const fbgenericButton = (recipientId,sub,selectedOpt, cb) => {
             "image_url":"https://lh3.googleusercontent.com/-ZORtyZGwP8c/AAAAAAAAAAI/AAAAAAAAHjg/Hu-5E_mJYNs/s0-c-k-no-ns/photo.jpg",
             "subtitle":"Author Name 2",
             "buttons":[
-			  {
-                "type":"postback",
-                "title":"4h 20m",
-                "payload":"USER_DEFINED_PAYLOAD"
+             {
+                "type":"web_url",
+                "url":"https://www.pluralsight.com/pricing",
+                "title":"4h 20m"
               },
               {
-                "type":"postback",
-                "title":"Intermediate",
-                "payload":"USER_DEFINED_PAYLOAD"
-              },    			  
+                "type":"web_url",
+                "url":"https://www.pluralsight.com/pricing",
+                "title":"Intermediate"
+              },			  
               {
                 "type":"web_url",
                 "url":"https://www.pluralsight.com/pricing",
@@ -205,16 +205,16 @@ const fbgenericButton = (recipientId,sub,selectedOpt, cb) => {
             "image_url":"https://lh3.googleusercontent.com/-ZORtyZGwP8c/AAAAAAAAAAI/AAAAAAAAHjg/Hu-5E_mJYNs/s0-c-k-no-ns/photo.jpg",
             "subtitle":"Author Name 3",
             "buttons":[
-			  {
-                "type":"postback",
-                "title":"10h 50m",
-                "payload":"USER_DEFINED_PAYLOAD"
+              {
+                "type":"web_url",
+                "url":"https://www.pluralsight.com/pricing",
+                "title":"10h 50m"
               },
               {
-                "type":"postback",
-                "title":"Advanced",
-                "payload":"USER_DEFINED_PAYLOAD"
-              },    			  
+                "type":"web_url",
+                "url":"https://www.pluralsight.com/pricing",
+                "title":"Advanced"
+              },			  
               {
                 "type":"web_url",
                 "url":"https://www.pluralsight.com/pricing",
